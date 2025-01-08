@@ -1,0 +1,180 @@
+<html>
+<head>
+<title>Dane Mieszkańców kawdoru</title>
+    <style>
+    body
+        {
+          
+            background-color: black;
+        }
+*
+        {
+            color: #00f600;
+            font-size: 26px;
+            font-family: consolas;
+        }
+    #janik
+    {
+       display: inline;
+    }
+    </style>
+    </head>
+<body>
+    
+ 
+ <div id="kawdor" onclick="kawdor()">SELECT * FROM DaneMieszkancowKawdoru<div id="janik">_</div></div>
+
+    </body>
+<script>
+    let czykawdor = 0;
+    let id = 0;
+    let imie = ["&nbsp  Jan  &nbsp &nbsp &nbsp", "Boleslaw &nbsp &nbsp", "Ernest &nbsp &nbsp &nbsp", "Zygmunt &nbsp &nbsp", "Witold &nbsp &nbsp &nbsp", "Janik &nbsp &nbsp &nbsp", "&nbsp Bzyk &nbsp &nbsp &nbsp", "Koscinten &nbsp", "Milogost &nbsp &nbsp", "Antoni &nbsp &nbsp &nbsp", "Pepin &nbsp &nbsp &nbsp", "Siemowit &nbsp &nbsp", "Quentin &nbsp &nbsp", " &nbspAnzelm &nbsp &nbsp", "Ziemowit &nbsp &nbsp", "Cezary &nbsp &nbsp &nbsp",];
+    let nazwisko = ["Przypadek &nbsp", "Obiekt &nbsp &nbsp", "&nbsp Atrapa &nbsp", "&nbsp Gruszka &nbsp", "&nbsp Mydelko &nbsp", "Smach &nbsp &nbsp", "&nbsp Obibok &nbsp", "Wallenrod ", "Głupek &nbsp &nbsp", " &nbspKon &nbsp&nbsp&nbsp", " &nbspZelek &nbsp&nbsp", "&nbsp Krotki &nbsp", "&nbsp Dlugi  &nbsp &nbsp", "&nbsp Komar &nbsp", "&nbsp Paczka &nbsp", "&nbsp Czarny &nbsp", "W-Worku &nbsp"];
+	let adres1 = ["Boczna ", "Glupia ", "Terroru", "Adiemusa", "Rewolucji", "Dolna ", "Serowa ", "Jodlowa ", "Krotka ", "Niedoli ", "Smazona ", "Matejki ", "Koncowa ", "Mlyńska ", "Gorska "];
+	let onomatopeja = [" ", " ", " ", "c", "a", "b"];
+   let losowe;
+   let max = 500;
+
+   ukrycie();
+
+
+
+
+    function kawdor()
+{
+    
+    document.getElementById("kawdor").style.display = "none";
+przerwa();
+    document.body.innerHTML += "|";
+document.body.innerHTML += "   &nbsp   &nbsp   id     &nbsp &nbsp        ";
+    document.body.innerHTML += "|";
+document.body.innerHTML += "   &nbsp   &nbsp    &nbsp  imie  &nbsp   &nbsp   &nbsp &nbsp        ";
+    document.body.innerHTML += "|";
+document.body.innerHTML += "   &nbsp   &nbsp   nazwisko     &nbsp &nbsp        ";
+    document.body.innerHTML += "|";
+document.body.innerHTML += "   &nbsp   &nbsp   adres     &nbsp &nbsp &nbsp     &nbsp  ";
+        document.body.innerHTML += "|";
+document.body.innerHTML += "   &nbsp   &nbsp &nbsp &nbsp &nbsp  IP &nbsp &nbsp  &nbsp   &nbsp &nbsp    &nbsp &nbsp    ";
+    document.body.innerHTML += "|";
+document.body.innerHTML += "   &nbsp   &nbsp   pesel     &nbsp &nbsp   &nbsp &nbsp     ";
+    document.body.innerHTML += "|<br>";
+    przerwa();
+	losowe = Math.floor(Math.random() * 11);
+    dane();
+}
+    
+    document.addEventListener("keyup", event =>{
+        console.log(event.key);
+
+        if(event.key == "Enter")
+        {
+if(czykawdor == 0)
+{
+            
+            kawdor();
+}
+        }
+    else if(event.key == "c")
+    {
+
+max = prompt("ile danych ma wygenerować program (domyślnie jest ustawiony na 500)")
+    }
+
+
+    }
+    )
+
+
+
+
+    function dane()
+{
+    czykawdor = 1;
+    document.body.innerHTML += "| &nbsp  &nbsp &nbsp";
+    document.body.innerHTML += id + "&nbsp &nbsp  &nbsp";
+	id++;
+
+losowe = Math.floor(Math.random() * imie.length);
+    document.body.innerHTML += "| &nbsp   &nbsp";
+    document.body.innerHTML += imie[losowe];
+document.body.innerHTML += " &nbsp   &nbsp|";
+
+
+
+losowe = Math.floor(Math.random() * nazwisko.length);
+
+document.body.innerHTML += " &nbsp   &nbsp";
+    document.body.innerHTML += nazwisko[losowe];
+document.body.innerHTML += " &nbsp   &nbsp|";
+
+
+losowe = Math.floor(Math.random() * adres1.length);
+document.body.innerHTML += " &nbsp   &nbsp";
+    document.body.innerHTML += adres1[losowe] + "&nbsp";
+	
+	losowe = Math.floor(Math.random() * 100);
+	document.body.innerHTML += losowe + onomatopeja[Math.floor(Math.random() * 6)];
+document.body.innerHTML += " &nbsp   &nbsp| &nbsp &nbsp &nbsp";
+
+
+losowe = Math.floor(Math.random() * 101);
+	document.body.innerHTML += losowe + ".";
+	losowe = Math.floor(Math.random() * 1000);
+	document.body.innerHTML += losowe + ".";
+	losowe = Math.floor(Math.random() * 1000);
+	document.body.innerHTML += losowe + ".";
+	losowe = Math.floor(Math.random() * 1000);
+	document.body.innerHTML += losowe ;
+document.body.innerHTML += " &nbsp &nbsp &nbsp &nbsp|&nbsp&nbsp";
+
+
+for (let i = 0; i < 10; i++)
+{
+losowe = Math.floor(Math.random() * 10);
+	document.body.innerHTML += losowe;
+	}
+	
+document.body.innerHTML += " &nbsp   &nbsp| &nbsp";
+
+document.body.innerHTML += "<br>";
+przerwa();
+if (id <= max)
+{
+setTimeout(dane,40);
+}
+
+}
+
+
+
+    
+    
+   function przerwa()
+{
+document.body.innerHTML += "--------------------------------------------------------------------------------------------------------------------------- <br>";
+}
+    
+ 
+
+   function ukrycie()
+   {
+   if (czykawdor == 0)
+   {
+document.getElementById("janik").style.display = "none";
+setTimeout(pokazanie,600);
+}
+
+   }
+	
+   function pokazanie()
+   {
+    if (czykawdor == 0)
+   {
+document.getElementById("janik").style.display = "inline";
+setTimeout(ukrycie,600);
+   }
+
+   }
+    
+    </script>
+</html>

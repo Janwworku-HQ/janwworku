@@ -1,0 +1,298 @@
+﻿
+
+<html lang="pl">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="modulomatka.ico">
+    <title>Modulo Matką Głupich</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+body{
+
+    background-color: rgb(29, 16, 16);
+    display: flex;
+  justify-content: center;
+}
+#j
+{
+color: rgb(225, 24, 24);
+    font-size: 50px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+.text
+{
+
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.jan
+{
+
+border: 3px black solid;
+width: 40%;
+font-size: 20px;
+align-self: center;
+text-align: center;
+background-color: rgb(44, 43, 41);
+border-radius: 5px;
+
+}
+.niegodziwy
+{
+display: inline;
+    color: rgb(199, 4, 4);
+
+
+}
+
+img
+{
+
+max-width: 300px;
+
+}
+.cyrograf
+{
+
+font-size: 40px;
+color: rgb(221, 12, 12);
+
+}
+input{
+
+background-color: rgb(51, 25, 25);
+border: 2px solid black;
+  border-radius: 4px;
+  font-family:Arial, Helvetica, sans-serif;
+
+}
+#generujpl
+{
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    justify-content: left;
+    text-align: left;
+    
+}
+
+    </style>
+</head>
+<body>
+<div class="jan">
+<div id="j">Dalej korzystasz z modulo!?</div>
+<br>
+<br>
+<div class="text">Z <div class="niegodziwy">modulo</div> korzystają teraz tylko <div class="niegodziwy">głupcy</div>!!!!</div>
+<br>
+<br>
+<div class="text">Najnowsze badania naukowców z <div class="niegodziwy"> uniwersytetu jagiellońskiego </div> udowadniają że ten niepozorny znaczek jakim jest <div class="niegodziwy">%</div> tak na prawdę skrywa <div class="niegodziwy"> mroczne sekrety </div> i  <div class="niegodziwy">nie powinien </div> być używany.</div>
+<br>
+<div class="moduloobraz"><img src="modulo.png"></div>
+<br>
+<div class="text">Pewnie myślisz że bez <div class="niegodziwy">modulo</div> nie da się żyć... <div class="niegodziwy">FARMAZONY!!!!!</div></div>
+<br>
+<div class="text">Jednak nie lękaj się albowiem <div class="niegodziwy">rozwiązanie</div> jest <div class="niegodziwy">tuż przed twoim nosem!</div></div>
+<br>
+<div class="text">Przedstawiamy generator kodu do języka <div class="niegodziwy">c++</div> który sprawdzi czy podana liczba jest parzysta czy nieparzysta <div class="niegodziwy">BEZ potrzeby</div> używania wzywającego na dusz ludzkich potępienie<div class="niegodziwy"> modulo...</div></div>
+<br>
+<div class="text"> Wystarczy tylko wypełnić poniższy formularz <div class="niegodziwy">danymi</div> jakie nasz program będzie przetwarzał i gotowe!</div>
+<br>
+<div class="text"><div class="niegodziwy">Tak! To takie proste!</div></div>
+<br>
+<div class="text">I to bez tego <div class="niegodziwy">badziewia</div> jakim jest <div class="niegodziwy">modulo</div></div>
+<br>
+<div class="text">Gdy <div class="niegodziwy">głupi modulo używa</div> to <div class="niegodziwy">przebiegły triumfuje!</div></div>
+<br>
+<div class="moduloobraz"><img src="g%C5%82upi.png"></div>
+<br>
+<br>
+<div class="text">Zjedź poniżej aby wypełnić formularz</div>
+<br>
+<br>
+<br>
+<div class="cyrograf" id="belzebub">Formularz</div>
+<br>
+<div class="text">Jaka jest <div class="niegodziwy">najmniejsza liczba</div> jaką będzie przetwarzał twój program?</div>
+<input type="text" id="mniejsze">
+<br>
+<br>
+<div class="text">Jaka jest <div class="niegodziwy">największa</div> jaką będzie przetwarzał twój program?</div>
+<input type="text" id="wieksze">
+<br>
+<br>
+<input type="button" value="Generuj" onclick="sprawdzaniemin()">
+<br>
+<div class="text"><div class="niegodziwy" id="glupi"></div></div>
+<br>
+<div id="generujpl"></div>
+<br>
+</div>
+
+</body>
+<script>
+
+cyrograf();
+
+
+var sleepSetTimeout_ctrl;
+
+function sleep(ms) {
+    clearInterval(sleepSetTimeout_ctrl);
+    return new Promise(resolve => sleepSetTimeout_ctrl = setTimeout(resolve, ms));
+}
+
+
+
+
+
+function cyrograf()
+{
+
+document.getElementById("belzebub").innerHTML = "جونCYROGRAFجون";
+
+setTimeout(niecyrograf, 300);
+}
+function niecyrograf()
+{
+
+    document.getElementById("belzebub").innerHTML = "Formularz";
+    setTimeout(cyrograf, 4000);
+}
+
+
+function sprawdzaniemin()
+{
+
+    let min = parseInt(document.querySelector("#mniejsze").value);
+    let max = parseInt(document.querySelector("#wieksze").value);
+  
+    
+if (isNaN(min) == true)
+{
+
+    
+    document.querySelector("#glupi").innerHTML = "Jesteś głupi, wpisz liczbę (najmniejszą) a nie literki!!!!";
+}
+else 
+{
+    
+sprawdzaniemax(min, max);
+
+
+}
+
+}
+
+
+function sprawdzaniemax(min, max)
+{
+
+    if (isNaN(max) == true)
+{
+
+
+    document.querySelector("#glupi").innerHTML = "Jesteś głupi, wpisz liczbę (największą) a nie literki!!!!";
+}
+else 
+{
+
+hamlet(min, max);
+
+} 
+}
+
+
+function hamlet(min, max)
+{
+
+if (min > max)
+{
+
+    document.querySelector("#glupi").innerHTML = "Jesteś głupi, większa wartość ma być większa od mniejszej!!!!";
+
+}
+else if (min < max)
+{
+
+    document.querySelector("#glupi").innerHTML = "Oto gotowy program <br>";
+    generowanie(min, max);
+
+}
+
+}
+
+async function generowanie(min, max)
+{
+ let k = min;
+    document.querySelector("#generujpl").innerHTML = "#include &lt;iostream&gt; <br>";
+    document.querySelector("#generujpl").innerHTML += "using namespace std; <br><br>";
+    document.querySelector("#generujpl").innerHTML += "int main()<br>";
+    document.querySelector("#generujpl").innerHTML += "{<br>";
+
+    document.querySelector("#generujpl").innerHTML += "cout &lt;&lt; \"Wpisz liczbe\" &lt;&lt; endl; <br>";
+    document.querySelector("#generujpl").innerHTML += "int liczba;<br>";
+    document.querySelector("#generujpl").innerHTML += "cin &gt;&gt; liczba; <br>";
+    document.querySelector("#generujpl").innerHTML += "<br>";
+
+if (k  % 2 == 0)
+{
+   
+    document.querySelector("#generujpl").innerHTML += "if(liczba == " + k + ")";
+    document.querySelector("#generujpl").innerHTML += "{<br>";
+    document.querySelector("#generujpl").innerHTML += "cout &lt;&lt; \"liczba jest parzysta\" &lt;&lt; endl; <br>";
+    document.querySelector("#generujpl").innerHTML += "}<br>";
+
+}
+else if (k % 2 == 1)
+{
+   
+    document.querySelector("#generujpl").innerHTML += "if(liczba == " + k + ")";
+    document.querySelector("#generujpl").innerHTML += "{<br>";
+    document.querySelector("#generujpl").innerHTML += "cout &lt;&lt; \"liczba nie jest parzysta\" &lt;&lt; endl; <br>";
+    document.querySelector("#generujpl").innerHTML += "}<br>";
+
+}
+k++;
+document.querySelector("#generujpl").innerHTML += "<br>";
+
+
+for (let i = k; i <= max; i++)
+{
+    await sleep(10);
+    if (i % 2 == 0)
+{
+
+    document.querySelector("#generujpl").innerHTML += "else if(liczba == " + k + ")";
+    document.querySelector("#generujpl").innerHTML += "{<br>";
+    document.querySelector("#generujpl").innerHTML += "cout &lt;&lt; \"liczba jest parzysta\" &lt;&lt; endl; <br>";
+    document.querySelector("#generujpl").innerHTML += "}<br>";
+    document.querySelector("#generujpl").innerHTML += "<br>";
+    
+
+}
+else if (i % 2 == 1)
+{
+
+    document.querySelector("#generujpl").innerHTML += "else if(liczba == " + k + ")";
+    document.querySelector("#generujpl").innerHTML += "{<br>";
+    document.querySelector("#generujpl").innerHTML += "cout &lt;&lt; \"liczba nie jest parzysta\" &lt;&lt; endl; <br>";
+    document.querySelector("#generujpl").innerHTML += "}<br>";
+    document.querySelector("#generujpl").innerHTML += "<br>";
+
+}
+k++
+}
+
+
+    document.querySelector("#generujpl").innerHTML += "<br>";
+    document.querySelector("#generujpl").innerHTML += "return 0;<br>";
+    document.querySelector("#generujpl").innerHTML += "}<br>";
+}
+
+
+
+</script>
+</html>

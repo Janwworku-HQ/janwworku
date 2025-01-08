@@ -1,0 +1,43 @@
+#victis{
+
+    color: red;
+    border: rgb(181, 0, 0) 3px solid;
+    border-radius: 5px;
+    background-color: rgb(159, 54, 54);
+    
+    }
+    
+    #victis:hover{
+    
+    color: rgb(255, 0, 0);
+    border: rgb(144, 1, 1) 3px solid;
+    border-radius: 5px;
+    background-color: rgb(168, 78, 78);
+    
+    }
+    
+    body{
+    
+    background-color: rgb(195, 189, 132);
+    
+    
+    
+    }
+    #sekcjaG{
+    
+    text-align: center;
+    border: 5px solid rgb(56, 54, 38);
+    background-color: rgba(116, 112, 80, 0.659);
+    border-radius: 8px;
+    width: fit-content;
+    padding: 6px;
+    
+    }
+    #nadsekcja{
+    
+    display: flex;
+    justify-content: center;
+    
+    }
+    
+    

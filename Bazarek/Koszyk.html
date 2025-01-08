@@ -1,0 +1,359 @@
+
+<html lang="pl">
+   
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Najlepsze produkty lokalny bazarek najlepszy w Dunzynan">
+<title id="title">Dunzynański Bazarek - Koszyk</title>
+        <style>
+            body
+            {
+
+background-color: #1c1f1d;
+margin: 0px;
+
+            }
+*
+{
+
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+#menu-gorne
+{
+
+background-color: rgba(105, 105, 105, 0.737);
+width: 100%;
+height: 10%;
+position: fixed;
+padding: 4px;
+border: 2px black;
+display: flex;
+justify-content: center;
+
+
+}
+#odzielenie
+{
+    width: 100%;
+    height: 15%;
+
+
+}
+.przycisk
+{
+    font-size: large;
+    
+    user-select: none;
+    float: left;
+    border: 3px solid rgb(34, 34, 34);
+    border-radius: 4px;
+    height: 85%;
+    width: 19%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 4px;
+}
+.przycisk:hover
+{
+    user-select: none;
+    border: 3px solid yellow;
+    color: yellow;
+    background: #1c1f1d;
+
+}
+img
+{
+
+width: 100%;
+height: 100%;
+
+}
+#obrazek
+{
+
+    border: 0px;
+    height: 85%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+}
+#obrazek:hover
+{
+
+    animation: niewolnik 0.7s ease 0s infinite normal forwards;
+
+}
+
+.osoba
+{
+user-select: none;
+border: 7px solid black;
+border-radius: 4px;
+background-color:dimgray;
+width: 200px;
+height: 200px;
+text-align: center;
+color: black;
+margin: 8px;
+cursor:grab;
+
+}
+.osoba:hover
+{
+
+    border: 7px solid yellow;
+
+}
+.osoba:hover h2
+{
+    user-select: none;
+    color: yellow;
+
+}
+@keyframes niewolnik {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+
+	10%,
+	30%,
+	50%,
+	70% {
+		transform: translateX(-10px);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: translateX(10px);
+	}
+
+	80% {
+		transform: translateX(8px);
+	}
+
+	90% {
+		transform: translateX(-8px);
+	}
+}
+
+
+#srodkowanieflex
+{
+
+display: flex;
+justify-content: center;
+
+}
+h3, h1{
+
+text-align: center;
+
+}
+#BazareklogoImg
+{
+
+    width: 30%;
+    height: 10%;
+
+}
+footer
+{
+text-align: center;
+padding: 4vh;
+background-color: rgb(57, 56, 56);
+font-size: small;
+}
+a:visited 
+{
+
+color: lightblue;
+
+}
+a
+{
+
+color: lightblue;
+
+}
+#sekcja{
+
+display: flex;
+flex-wrap: wrap;
+gap: 4px;
+
+}
+h2, h4
+{
+
+text-align: center;
+
+}
+.cenny
+{
+
+    user-select: none;
+border: 7px solid rgb(254, 241, 211);
+border-radius: 4px;
+background-color:rgb(237, 210, 112);
+width: 200px;
+height: 200px;
+text-align: center;
+color: rgb(130, 115, 61);
+margin: 8px;
+cursor:grab;
+
+}
+.cenny:hover
+{
+    background-color: rgb(247, 235, 205);
+    border: 7px solid rgb(245, 177, 17);
+
+}
+.cenny:hover h2
+{
+    user-select: none;
+    color: rgb(245, 177, 17);
+
+}
+h3
+{
+
+text-align: center;
+
+}
+        </style>
+    </head>
+<body>
+
+
+
+<div id="menu-gorne">
+    <div class="przycisk" onclick="przekierowanie(1)">Strona Główna</div>
+    <div class="przycisk" onclick="przekierowanie(2)">Bazarek</div>
+    <div id="obrazek" onclick="sprzedanedzwiek()"><img src="bazareklogo2.png"></div>
+    <div class="przycisk" onclick="przekierowanie(3)">Koszyk</div>
+    <div class="przycisk" onclick="przekierowanie(4)">Dostawa</div>
+</div>
+<div id="odzielenie"></div>
+<h2 id="wartosc">Wartość produktów w koszyku wynosi: </h2>
+<div id="odzielenie"></div>
+<br>
+<div id="sekcja"></div>
+<br>
+<h4>Aby zobaczyć możliwe terminy dostawy odwiedź sekcję <a href="/Dostawa">dostawa</a></h4>
+<div id="odzielenie"></div>
+<footer> <a href="https://janwworku.pl/">www.janwworku.pl</a> <br> Dunzynański Bazarek <br> Więcej o nas znajdziesz na <a href="/">stronie głównej</a> <br> PomozcieMi@janwworku.pl <br> NIE PONOSIMY ODPOWIEDZIALNOŚCI ZA WEJŚCIE NA STRONĘ NUMER CZTERDZIEŚCICZTERY</footer>
+</body>
+<script>
+
+
+//lista najdroższych
+let cenni = ["Jan Przypadek", "Jan Obiekt", "Ernest Skorupa", "Komar Bzyk", "Antoni Gruszka", "Pepin Krótki", "Ziemowit Smaga", "Michał Paczka", "Jan W-Worku", "Mikołaj Żelazek", "Norbi Ratajczak", "Michał Sokołowski", "Józef Maślak", "Mirosław Zelent", "Andżej Dżemorek", "Maksymilian Jedynak", "Fineaszek Ferbik", "Igi Szcz", "Michał Bazarek", "Jan Kostro", "Stanisław Snapdragon", "Jakub Cynamonowy", "Witold Smach", "Janik Atrapa", "CZTERYDZIEŚCICZTERY"];
+
+//bazowan nazwa strony
+document.getElementById("title").innerHTML = "Dunzynański Bazarek - Koszyk"
+
+
+var sleepSetTimeout_ctrl; //ukradziony kod na czekanie x sekund
+//await sleep(10);
+function sleep(ms) {
+    clearInterval(sleepSetTimeout_ctrl);
+    return new Promise(resolve => sleepSetTimeout_ctrl = setTimeout(resolve, ms));
+}
+//s
+  
+//wygrywanie dźwięku po naciśnięciu na czekanie guzik
+let sprzedaneSound = new Audio("SPRZEDANE.ogg");
+function sprzedanedzwiek() 
+{
+
+sprzedaneSound.play();
+console.log("muzyka zagrana")
+}
+
+//sprawdzanie
+let Sprawdzenie = localStorage.getItem("IloscKupionych");
+if (Sprawdzenie == null)
+{
+    localStorage.setItem("IloscKupionych", 0);
+}
+
+//wczytywanie kupionych
+let kupieni = parseInt(localStorage.getItem("IloscKupionych"))
+let odnosnikSekcji = document.getElementById("sekcja")
+let CalkWar = 0;
+
+console.log(kupieni)
+
+if (kupieni == 0 || kupieni == NaN)
+{
+
+    odnosnikSekcji.innerHTML = "<h3>Nie kupiłeś niczego</h3>"; 
+
+}
+else
+{
+for (let i = 1; i <= kupieni; i++)
+{
+console.log(localStorage.getItem("Kupiony" + i))
+//odnosnikSekcji.innerHTML += "<div class=\"osoba\">" + localStorage.getItem("Kupiony" + i) + "</div>";
+if (containsAnyString(localStorage.getItem("Kupiony" + i), cenni))
+{
+    CalkWar += 44000000
+console.log("44")
+odnosnikSekcji.innerHTML += "<div class=\"cenny\">" + localStorage.getItem("Kupiony" + i) + "</div>";
+}
+else
+{
+    CalkWar += 100
+    console.log("100")
+    odnosnikSekcji.innerHTML += "<div class=\"osoba\">" + localStorage.getItem("Kupiony" + i) + "</div>";
+}
+
+}
+document.getElementById("wartosc").innerHTML += CalkWar + " zł";
+}
+
+function containsAnyString(text, fragments) { //sprawdzenie czy dana osoba jest na liście najdroższych
+  for (let i = 0; i < fragments.length; i++) {
+    if (text.includes(fragments[i])) {
+      return true;
+    }
+  }
+  return false;
+}
+
+
+function przekierowanie(numer) //menu górne
+{
+
+    if (numer == 1)
+{
+    window.location.href = "/Bazarek/";
+}
+else if (numer == 2)
+{
+    window.location.href = "/Bazarek/Bazarek";
+}
+else if (numer == 3)
+{
+    window.location.href = "/Bazarek/Koszyk";
+}
+else if (numer == 4)
+{
+    window.location.href = "/Bazarek/Dostawa";
+}
+
+}
+
+
+
+</script>
+</html>

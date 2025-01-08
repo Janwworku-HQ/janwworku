@@ -1,0 +1,702 @@
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Najlepsze produkty lokalny bazarek najlepszy w Dunzynan">
+<title id="title">Dunzynański Bazarek</title>
+        <style>
+            body
+            {
+
+background-color: #1c1f1d;
+margin: 0px;
+
+            }
+*
+{
+
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+}
+.osoba
+{
+user-select: none;
+border: 7px solid black;
+border-radius: 4px;
+background-color:dimgray;
+width: 200px;
+height: 200px;
+text-align: center;
+color: black;
+margin: 8px;
+cursor: pointer;
+
+}
+.osoba:hover h2
+{
+    user-select: none;
+    color: yellow;
+
+}
+.osoba:hover
+{
+
+    border: 7px solid yellow;
+
+}
+.on
+{
+    user-select: none;
+    border: 7px solid rgb(121, 103, 11);
+border-radius: 4px;
+background-color:rgb(46, 44, 36);
+width: 200px;
+height: 200px;
+text-align: center;
+color: rgb(102, 70, 8);
+margin: 8px;
+cursor: grab;
+
+}
+.on:hover
+{
+    user-select: none;
+    border: 7px solid rgb(255, 166, 0);
+
+}
+.on:hover h2
+{
+    user-select: none;
+    color: rgb(255, 166, 0);
+
+}
+
+#sekcja
+{
+
+display: flex;
+flex-wrap: wrap;
+ gap: 4px; /* Odstęp między elementami(ten kod został ukradziony 31.05.2024 13:25) */
+}
+.istota
+{
+    user-select: none;
+border: 7px solid black;
+border-radius: 4px;
+background-color:rgb(34, 34, 34);
+width: 200px;
+height: 200px;
+text-align: center;
+color: black;
+margin: 8px;
+cursor: not-allowed;
+
+}
+.istota:hover
+{
+
+    border: 7px solid rgb(255, 0, 0);
+
+}
+
+.istota:hover h2
+{
+    user-select: none;
+    color: rgb(255, 0, 0);
+
+}
+
+#menu-gorne
+{
+
+background-color: rgba(105, 105, 105, 0.737);
+width: 100%;
+height: 10%;
+position: fixed;
+padding: 4px;
+border: 2px black;
+display: flex;
+justify-content: center;
+
+
+}
+#odzielenie
+{
+    width: 100%;
+    height: 15%;
+
+
+}
+.przycisk
+{
+    font-size: large;
+    
+    user-select: none;
+    float: left;
+    border: 3px solid rgb(34, 34, 34);
+    border-radius: 4px;
+    height: 85%;
+    width: 19%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 4px;
+}
+.przycisk:hover
+{
+
+    border: 3px solid yellow;
+    color: yellow;
+    background: #1c1f1d;
+
+}
+img
+{
+
+width: 100%;
+height: 100%;
+
+}
+#obrazek
+{
+
+    border: 0px;
+    height: 85%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+}
+#obrazek:hover
+{
+
+    animation: niewolnik 0.7s ease 0s infinite normal forwards;
+
+}
+@keyframes niewolnik {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+
+	10%,
+	30%,
+	50%,
+	70% {
+		transform: translateX(-10px);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: translateX(10px);
+	}
+
+	80% {
+		transform: translateX(8px);
+	}
+
+	90% {
+		transform: translateX(-8px);
+	}
+}
+
+select
+{
+
+    border-color: black;
+    border-radius: 4px;
+    background-color: rgb(105, 105, 105);
+
+}
+#srodkowanieflex
+{
+
+display: flex;
+justify-content: center;
+
+}
+h3, h1{
+
+text-align: center;
+
+}
+#BazareklogoImg
+{
+
+    width: 30%;
+    height: 10%;
+
+}
+footer
+{
+text-align: center;
+padding: 4vh;
+background-color: rgb(57, 56, 56);
+font-size: small;
+}
+a:visited 
+{
+
+color: lightblue;
+
+}
+a
+{
+
+color: lightblue;
+
+}
+
+        </style>
+    </head>
+<body>
+
+
+
+<div id="menu-gorne">
+    <div class="przycisk" onclick="przekierowanie(1)">Strona Główna</div>
+    <div class="przycisk" onclick="przekierowanie(2)">Bazarek</div>
+    <div id="obrazek" onclick="sprzedanedzwiek()"><img src="bazareklogo2.png"></div>
+    <div class="przycisk" onclick="przekierowanie(3)">Koszyk</div>
+    <div class="przycisk" onclick="przekierowanie(4)">Dostawa</div>
+    
+</div>
+
+<div id="odzielenie"></div>
+<h1>Życzymy udanych zakupów</h1>
+<div id="srodkowanieflex">
+<div id="BazareklogoImg"><img src="Bazarek.png"></div>
+</div>
+<h3>Wybierz ilość ofert jaką chcesz załadować</h3>
+
+<div id="srodkowanieflex">
+ <br>
+
+<select id="selekcik">
+<option value="20">20</option>
+<option value="44">44</option>
+<option value="50">50</option>
+<option value="100">100</option>
+<option value="500">500</option>
+<option value="40">NAJLEPSZE OFERTY</option>
+</select>
+<input type="button" onclick="wygeneruj()" id="" value="wyszukaj">
+</div>
+<br>
+<div id="sekcja"></div>
+<!--<div id="sekcja2"></div>
+<div id="sekcja3"></div>-->
+<div id="odzielenie"></div>
+<footer> <a href="https://janwworku.neocities.org/">www.janwworku.pl</a> <br> Dunzynański Bazarek <br> Więcej o nas znajdziesz na <a href="StronaGlowna.html">stronie głównej</a> <br> PomozcieMi@janwworku.pl <br> NIE PONOSIMY ODPOWIEDZIALNOŚCI ZA WEJŚCIE NA STRONĘ NUMER CZTERDZIEŚCICZTERY</footer>
+</body>
+<script>
+
+let imiona = ["Jan", "Boleslaw", "Ernest", "Zygmunt", "Witold", "Janik", "Bzyk", "Koscinten", "Milogost", "Antoni", "Pepin", "Quentin", "Anzelm", "Ziemowit", "Cezary", "Norbi", "Mikołaj","Michał", "Józef", "Mirosław", "Baltazar", "Andżej", "Maksymilian", "Fineaszek", "Samuel", "Igi", "Stanisław", "Jakub", "Melchizedek"];
+let nazwiska = ["Przypadek", "Obiekt", "Atrapa", "Gruszka", "Mydełko", "Smach", "Obibok", "Wallenrod", "Głupek", "Koń", "Żelek", "Krotki", "Długi", "Komar", "Paczka", "Czarny", "W-Worku", "Żelazek", "Ratajczak", "Spontan", "Gardocki", "Sokołowski", "Maślak", "Zelent", "Tawerna", "Dżemorek", "Jedynak", "Ferbik", "Szcz", "Bazarek", "Kostro", "Snapdragon", "Cynamonowy", "Smaga", "kor"];
+let miasta = ["Świętochłowice", "Wejherowo", "Zawiercie", "Skierniewice", "Starachowice", "Wodzisław Śląski", "Starogard Gdański", "Puławy", "Tarnobrzeg", "Kołobrzeg", "Krosno", "Radomsko", "Otwock", "Skarżysko-Kamienna", "Ciechanów", "Kutno", "Sieradz", "Zduńska Wola", "Świnoujście", "Żyrardów", "Bolesławiec", "Nowa Sól", "Knurów", "Oświęcim", "Sopot", "Piechowice", "Piaseczno", "Głogów", "Głogówek", "Malbork", "Kościan", "Lublin", "Grochów", "Nowy Świat", "Głogów", "Malbork", "Pisz", "Głogówek"]
+
+//wczytywanie ofert przycisk
+function wygeneruj()
+{
+let ile = document.getElementById("selekcik").value
+if (ile == 44)
+{
+niepoczytalnosc();
+}
+else
+{
+console.log(ile);
+generowanie(ile);
+
+}
+
+}
+
+
+//generowanie początkowe
+generowanie(20);
+
+//bazowan nazwa strony
+document.getElementById("title").innerHTML = "Dunzynański Bazarek"
+
+//sprawdzenie czy cokolwiek kupiłeś
+let Sprawdzenie = localStorage.getItem("IloscKupionych");
+if (Sprawdzenie == null)
+{
+    localStorage.setItem("IloscKupionych", 0);
+}
+
+
+
+var sleepSetTimeout_ctrl; //ukradziony kod na czekanie x sekund
+//await sleep(10);
+function sleep(ms) {
+    clearInterval(sleepSetTimeout_ctrl);
+    return new Promise(resolve => sleepSetTimeout_ctrl = setTimeout(resolve, ms));
+}
+//s
+   
+//wygrywanie dźwięku po naciśnięciu na czekanie guzik
+let sprzedaneSound = new Audio("SPRZEDANE.ogg");
+function sprzedanedzwiek() 
+{
+
+sprzedaneSound.play();
+console.log("muzyka zagrana")
+}
+
+function przekierowanie(numer) //menu górne
+{
+
+    if (numer == 1)
+{
+    window.location.href = "StronaGlowna.html";
+}
+else if (numer == 2)
+{
+    window.location.href = "bazarek.html";
+}
+else if (numer == 3)
+{
+    window.location.href = "Koszyk.html";
+}
+else if (numer == 4)
+{
+    window.location.href = "Dostawa.html";
+}
+
+}
+
+
+async function generowanie(ilosc)
+{
+document.getElementById("title").innerHTML = "Dunzynański Bazarek" 
+
+
+    //nie resetujące się id bo jestem leniwy
+    let id = 0;
+
+//czyszczenie sekcji
+document.getElementById("sekcja").innerHTML = " ";
+
+
+for (let i = 0; i <= ilosc; i++) //iteracja dla każdego elementu
+{
+//rozpoczęcie generacji pola
+document.getElementById("sekcja").innerHTML += "<div id=\"div" + id + "\" class=\"osoba\" onclick=\"kupienie(" + id + ")\">" ;
+
+//generacja imienia i nazwiska
+let losowaliczba = Math.floor(Math.random() * (imiona.length - 1));
+let losowaliczba2 = Math.floor(Math.random() * (nazwiska.length - 1));
+document.getElementById("div" + id).innerHTML += "<h2>" + imiona[losowaliczba] + " " + nazwiska[losowaliczba2] + "</h2>";
+
+   
+
+    //generowanie miasta
+    losowaliczba = Math.floor(Math.random() * (miasta.length - 1));
+
+    document.getElementById("div" + id).innerHTML += miasta[losowaliczba] + "<br>";
+
+
+    //generowanie ip
+
+        //pierwsze dwie cyfry
+    document.getElementById("div" + id).innerHTML += Math.floor(Math.random() * 9) + 1;
+    document.getElementById("div" + id).innerHTML += Math.floor(Math.random() * 9) + 1;
+        document.getElementById("div" + id).innerHTML += ".";
+
+        //numerek od 1 do 2 i potem dwa numerki od 1 do 5
+    document.getElementById("div" + id).innerHTML += Math.floor(Math.random() * 2) + 1;
+        for (let cyfra = 0; cyfra <= 1; cyfra++) //następne trzy
+    {
+
+        document.getElementById("div" + id).innerHTML += Math.floor(Math.random() * 5) + 1;
+
+    }
+        document.getElementById("div" + id).innerHTML += ".";
+     //numerek od 1 do 2 i potem dwa numerki od 1 do 5
+    document.getElementById("div" + id).innerHTML += Math.floor(Math.random() * 2) + 1;
+        for (let cyfra = 0; cyfra <= 1; cyfra++) //następne trzy
+    {
+
+        document.getElementById("div" + id).innerHTML += Math.floor(Math.random() * 5) + 1;
+
+    }
+    document.getElementById("div" + id).innerHTML += ".";
+   //numerek od 1 do 2 i potem dwa numerki od 1 do 5
+   document.getElementById("div" + id).innerHTML += Math.floor(Math.random() * 2) + 1;
+        for (let cyfra = 0; cyfra <= 1; cyfra++) //następne trzy
+    {
+
+        document.getElementById("div" + id).innerHTML += Math.floor(Math.random() * 5) + 1;
+
+    }
+    document.getElementById("div" + id).innerHTML += "<br>";
+
+
+    //generowanie peselu 
+    for (let cyrfa = 0; cyrfa <= 10; cyrfa++)
+    {
+
+        document.getElementById("div" + id).innerHTML += Math.floor(Math.random() * 9) + 1;
+
+    }
+
+    //generowanie kup teraz
+    document.getElementById("div" + id).innerHTML += "<h3>KUP TERAZ</h3>"
+
+
+    //zamknięcie diva
+    document.getElementById("sekcja").innerHTML += "</div>"
+    id++;
+}
+
+if (ilosc != 40) //wykonuje się tylko gdy nie zostały wybrane najlepsze oferty
+{
+for (let i = 0; i < (ilosc * 3); i++)
+{
+
+    await sleep(800);
+    
+    let IdDoSprzedania = Math.floor(Math.random() * ilosc)
+let osobaDane = document.getElementById("div" + IdDoSprzedania).innerHTML
+
+if((osobaDane != "<br>SPRZEDANY") && (osobaDane != "<br>KUPIONY"))
+{
+console.log("SPRZEDANO OSOBE:" + osobaDane);
+console.log("ID SPRZEDANEGO:" + IdDoSprzedania);
+document.getElementById("div" + IdDoSprzedania).innerHTML = "<br>SPRZEDANY";
+document.getElementById("div" + IdDoSprzedania).style.backgroundColor = "black";
+document.getElementById("div" + IdDoSprzedania).style.color = "white";
+document.getElementById("div" + IdDoSprzedania).style.fontFamily = "impact";
+document.getElementById("div" + IdDoSprzedania).style.fontSize = "30px";
+document.getElementById("div" + IdDoSprzedania).style.cursor = "not-allowed";
+
+
+}
+
+}
+}
+else //ten else działa tylko dla najlepszych ofert
+{
+    for (let i = 0; i < 41; i++)
+    {
+        let osobaDane = document.getElementById("div" + i).innerHTML
+    await sleep(5);
+    if(osobaDane != "<br>SPRZEDANY")
+{
+console.log("SPRZEDANO OSOBE:" + osobaDane);
+console.log("ID SPRZEDANEGO:" + i);
+document.getElementById("div" + i).innerHTML = "<br>SPRZEDANY";
+document.getElementById("div" + i).style.backgroundColor = "black";
+document.getElementById("div" + i).style.color = "white";
+document.getElementById("div" + i).style.fontFamily = "impact";
+document.getElementById("div" + i).style.fontSize = "30px";
+document.getElementById("div" + i).style.cursor = "not-allowed";
+    }
+}
+
+
+
+}
+}
+
+
+
+
+//niepoczytalność (kupowanie na stronie 44)
+
+async function niepoczytalnosc()
+{
+alert("Możesz biec, możesz też uciekać.")
+document.getElementById("title").innerHTML = "04.04.2025"
+    let id = 0;
+//czyszczenie sekcji przed armagedonem
+document.getElementById("sekcja").innerHTML = " ";
+
+
+for(let i = 0; i < 45; i++)
+{
+console.log(i)
+
+    
+//rozpoczęcie generacji pola
+document.getElementById("sekcja").innerHTML += "<div id=\"vid" + id + "\" class=\"istota\" onclick=\"cenzura(" + id + ")\">" ;
+
+
+    if ((Math.floor(Math.random() * 9) + 1) != 4) //szansa 1 na 10 na adiemusa
+    {
+
+    let losowaliczba = Math.floor(Math.random() * (nazwiska.length - 1)); //losowe nazwisko w połączeniu z imieniem wincenty
+
+    document.getElementById("vid" + id).innerHTML += "<h2> Wincenty "+ nazwiska[losowaliczba] + "</h2>";
+
+//loowe miasto
+    losowaliczba = Math.floor(Math.random() * (miasta.length - 1));
+
+    document.getElementById("vid" + id).innerHTML += miasta[losowaliczba] + "<br>";
+
+//pierwsze dwie cyfry
+document.getElementById("vid" + id).innerHTML += Math.floor(Math.random() * 9) + 1;
+    document.getElementById("vid" + id).innerHTML += Math.floor(Math.random() * 9) + 1;
+        document.getElementById("vid" + id).innerHTML += ".";
+    for (let cyfra = 0; cyfra <= 2; cyfra++) //następne trzy
+    {
+
+        document.getElementById("vid" + id).innerHTML += Math.floor(Math.random() * 9) + 1;
+
+    }
+        document.getElementById("vid" + id).innerHTML += ".";
+        for (let cyfra = 0; cyfra <= 2; cyfra++) //następne trzy
+    {
+
+        document.getElementById("vid" + id).innerHTML += Math.floor(Math.random() * 9) + 1;
+
+    }
+    document.getElementById("vid" + id).innerHTML += ".";
+    for (let cyfra = 0; cyfra <= 2; cyfra++) //następne trzy
+    {
+
+        document.getElementById("vid" + id).innerHTML += Math.floor(Math.random() * 9) + 1;
+
+    }
+    document.getElementById("vid" + id).innerHTML += "<br>";
+
+
+    //generowanie peselu 
+    for (let cyrfa = 0; cyrfa <= 10; cyrfa++)
+    {
+
+        document.getElementById("vid" + id).innerHTML += Math.floor(Math.random() * 9) + 1;
+
+    }
+
+    //generowanie kup teraz
+    document.getElementById("vid" + id).innerHTML += "<h3>KUP TERAZ</h3>"
+
+
+     
+
+    }
+
+
+
+
+        else //adiemus
+        {
+
+            document.getElementById("vid" + id).innerHTML += "<h2> ADIEMUS ISTNIEJE </h2>";
+    document.getElementById("vid" + id).innerHTML += "znajdź go <br>";
+    document.getElementById("vid" + id).innerHTML += "75.275.275.275 <br>";
+    document.getElementById("vid" + id).innerHTML += "7575757575757 <br>";
+    document.getElementById("vid" + id).innerHTML += "<h3>ZNAJDŹ TERAZ</h3>"
+        }
+
+
+    //zamknięcie diva
+    document.getElementById("sekcja").innerHTML += "</div>"
+    id++;
+
+
+}
+
+//generowanie 44
+document.getElementById("sekcja").innerHTML += "<div id=\"czterydziesci\" class=\"on\" onclick=\"cztery()\">" ;
+    document.getElementById("czterydziesci").innerHTML += "<h2> 44 </h2>";
+    document.getElementById("czterydziesci").innerHTML += "44.244.244.244 <br>";
+    document.getElementById("czterydziesci").innerHTML += "44444444444 <br>";
+    document.getElementById("czterydziesci").innerHTML += "<h3>A IMIE JEGO</h3>"
+    document.getElementById("sekcja").innerHTML += "</div>"
+
+//cenzurowanie
+for (let i = 0; i < (45 * 3); i++)
+{
+
+    await sleep(800);
+    
+    let IdDoSprzedania = Math.floor(Math.random() * 45)
+let osobaDane = document.getElementById("vid" + IdDoSprzedania).innerHTML
+
+if(osobaDane != "<br>[CENZURA]")
+{
+console.log("SPRZEDANO OSOBE:" + osobaDane);
+console.log("ID SPRZEDANEGO:" + IdDoSprzedania);
+document.getElementById("vid" + IdDoSprzedania).innerHTML = "<br>[CENZURA]";
+document.getElementById("vid" + IdDoSprzedania).style.backgroundColor = "black";
+document.getElementById("vid" + IdDoSprzedania).style.color = "white";
+document.getElementById("vid" + IdDoSprzedania).style.fontFamily = "impact";
+document.getElementById("vid" + IdDoSprzedania).style.fontSize = "30px";
+document.getElementById("vid" + IdDoSprzedania).style.cursor = "not-allowed";
+
+
+}
+
+}
+
+}
+
+
+
+
+// kupowanie
+
+function kupienie(id)
+{
+let osobaDane = document.getElementById("div" + id).innerHTML
+
+osobaDane = osobaDane.replace("<h3>KUP TERAZ</h3>", " ")
+
+    if((osobaDane != "<br>KUPIONY") && (osobaDane != "<br>SPRZEDANY"))
+    {
+console.log(osobaDane);
+console.log(id);
+document.getElementById("div" + id).innerHTML = "<br>KUPIONY";
+document.getElementById("div" + id).style.backgroundColor = "green";
+document.getElementById("div" + id).style.color = "white";
+document.getElementById("div" + id).style.fontFamily = "impact";
+document.getElementById("div" + id).style.fontSize = "30px";
+document.getElementById("div" + id).style.cursor = "not-allowed";
+
+let kupieni = parseInt(localStorage.getItem("IloscKupionych"))
+localStorage.setItem("Kupiony" + (kupieni + 1), osobaDane);
+kupieni++;
+localStorage.setItem("IloscKupionych", kupieni)
+
+    }
+
+
+}
+
+function cenzura(id)
+{
+    let osobaDane = document.getElementById("vid" + id).innerHTML
+
+
+if(osobaDane != "<br>[CENZURA]")
+{
+console.log(osobaDane);
+console.log(id);
+document.getElementById("vid" + id).innerHTML = "<br>[CENZURA]";
+document.getElementById("vid" + id).style.backgroundColor = "black";
+document.getElementById("vid" + id).style.color = "white";
+document.getElementById("vid" + id).style.fontFamily = "impact";
+document.getElementById("vid" + id).style.fontSize = "30px";
+document.getElementById("vid" + id).style.cursor = "not-allowed";
+
+
+
+}
+
+
+}
+
+function cztery()
+{
+
+window.location.href = "radar.html"
+    
+}
+
+</script>
+</html>

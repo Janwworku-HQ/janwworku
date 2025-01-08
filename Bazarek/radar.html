@@ -1,0 +1,746 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Radar 0044</title>
+<style>
+    html{
+
+filter: blur(1.5px);
+
+    }
+body
+{
+
+background-color: black;
+
+}
+*
+{
+    user-select: none;
+    font-family: consolas;
+    color: #00f600;
+    position: fixed;
+}
+#borderek
+{
+
+border: #00f600 solid 7px;
+border-radius: 15px;
+width: 98%;
+height: 97%;
+
+
+}
+.crt::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(33, 41, 32, 0) 50%, rgba(41, 48, 39, 0.25) 50%), linear-gradient(90deg, rgba(102, 255, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(43, 255, 0, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+p
+{
+font-size: 300%;
+left: 2%;
+
+}
+#ty
+{
+
+top: 50%;
+left: 50%;
+
+
+
+}
+.kulka
+{
+
+    border:#00f600 120% solid;
+background-color: #00f600;
+border-radius: 44px;
+font-size: 200%;
+font-weight: 900;
+color: black;
+
+}
+</style>
+</head>
+<body>
+    <div class="crt" id="borderek">
+<p id="wykrywacz" onclick="init()">Kliknij aby rozpocząć skanowanie</p>
+
+
+</div>
+</body>
+<script>
+
+
+
+
+var sleepSetTimeout_ctrl; //ukradziony kod na czekanie x sekund
+//await sleep(10);
+function sleep(ms) {
+    clearInterval(sleepSetTimeout_ctrl);
+    return new Promise(resolve => sleepSetTimeout_ctrl = setTimeout(resolve, ms));
+}
+
+//czterdziescicztery();
+//niepoczytalnosc();
+
+function init()
+{
+    clear();
+    niepoczytalnosc();
+   
+
+}
+
+async function niepoczytalnosc()
+{
+
+let losowe = Math.floor(Math.random() * 25000) + 5440;
+
+console.log("wylosowany czas to " + losowe)
+
+await sleep(losowe)
+
+losowe = Math.floor(Math.random() * 30) + 0
+
+console.log("wylosowany numer to " + losowe)
+
+if (losowe == 4)
+{
+
+    czterdziescicztery();
+
+}
+else if (losowe == 10)
+{
+
+    krolik();
+
+}
+else if (losowe == 15)
+{
+
+    krolik();
+
+}
+else if (losowe == 2)
+{
+
+    ty();
+
+}
+else if (losowe == 9)
+{
+
+    sobieski();
+
+}
+else if (losowe == 13)
+{
+
+    ptak();
+
+}
+else if (losowe == 19)
+{
+
+    ptakd();
+
+}
+else if (losowe == 25)
+{
+
+    ptak();
+
+}
+else if (losowe == 24)
+{
+
+    ptakd();
+
+}
+else if (losowe == 22)
+{
+
+    adi();
+
+}
+else if (losowe == 18)
+{
+
+    wincenty();
+
+}
+else
+{
+niepoczytalnosc();
+
+}
+
+}
+
+//incydenty
+
+async function czterdziescicztery()
+{
+SetWykrywacz("Niezidentyfikowany obiekt numer 44 znajduje się 100m od ciebie");
+document.getElementById("borderek").innerHTML += "<div id=\"on\" class=\"kulka\">44</div>"
+let on = document.getElementById("on");
+
+on.style.top = 50 + "%";
+on.style.left = 1 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Niezidentyfikowany obiekt numer 44 znajduje się 80m od ciebie");
+
+on.style.top = 45 + "%";
+on.style.left = 10 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Niezidentyfikowany obiekt numer 44 znajduje się 44m od ciebie");
+
+on.style.top = 50 + "%";
+on.style.left = 20 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Niezidentyfikowany obiekt numer 44 znajduje się 30m od ciebie");
+
+on.style.top = 40 + "%";
+on.style.left = 30 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Niezidentyfikowany obiekt numer 44 znajduje się 20m od ciebie");
+
+on.style.top = 45 + "%";
+on.style.left = 40 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("UCIEKAJ");
+
+on.style.top = 45 + "%";
+on.style.left = 40 + "%";
+
+
+await sleep(1000);
+
+SetWykrywacz("Niezidentyfikowany obiekt numer 44 znajduje się 20m od ciebie");
+
+on.style.top = 45 + "%";
+on.style.left = 40 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Niezidentyfikowany obiekt numer 44 znajduje się 19m od ciebie");
+
+on.style.top = 50 + "%";
+on.style.left = 40 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Niezidentyfikowany obiekt numer 44 znajduje się 17m od ciebie");
+
+on.style.top = 50 + "%";
+on.style.left = 42 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Niezidentyfikowany obiekt numer 44 znajduje się 15m od ciebie");
+
+on.style.top = 50 + "%";
+on.style.left = 44 + "%";
+let szept = new Audio("szept.mp3");
+szept.play();
+
+await sleep(900);
+
+SetWykrywacz("Niezidentyfikowany obiekt numer 44 znajduje się 5m od ciebie");
+
+on.style.top = 50 + "%";
+on.style.left = 45 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Niezidentyfikowany obiekt numer 44 znajduje się 1m od ciebie");
+
+on.style.top = 50 + "%";
+on.style.left = 48 + "%";
+
+await sleep(4400);
+szept.pause();
+clear();
+SetWykrywacz("Obecnie nikogo nie ma w pobliżu");
+niepoczytalnosc(); 
+
+}
+
+async function krolik()
+{
+
+    SetWykrywacz("Obiekt królik znajduje się 189m od ciebie");
+document.getElementById("borderek").innerHTML += "<div id=\"krolik\" class=\"kulka\">Kr</div>"
+let on = document.getElementById("krolik");
+
+on.style.top = 2 + "%";
+on.style.left = 89 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt królik znajduje się 110m od ciebie");
+
+on.style.top = 15 + "%";
+on.style.left = 89 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt królik znajduje się 80m od ciebie");
+
+on.style.top = 30 + "%";
+on.style.left = 89 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt królik znajduje się 50m od ciebie");
+
+on.style.top = 50 + "%";
+on.style.left = 89 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt królik znajduje się 80m od ciebie");
+
+on.style.top = 65 + "%";
+on.style.left = 89 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt królik znajduje się 110m od ciebie");
+
+on.style.top = 78 + "%";
+on.style.left = 89 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt królik znajduje się 189m od ciebie");
+
+on.style.top = 89 + "%";
+on.style.left = 89 + "%";
+
+await sleep(1000);
+
+clear();
+SetWykrywacz("Obecnie nikogo nie ma w pobliżu");
+niepoczytalnosc(); 
+}
+
+async function ty()
+{
+
+    
+document.getElementById("borderek").innerHTML += "<div id=\"atrapa\" class=\"kulka\">Ty</div>"
+let on = document.getElementById("atrapa");
+
+on.style.top = 89 + "%";
+on.style.left = 30 + "%";
+
+await sleep(1000);
+
+on.style.top = 70 + "%";
+on.style.left = 40 + "%";
+
+document.getElementById("borderek").innerHTML += "<div id=\"atrapa2\" class=\"kulka\">Ty</div>"
+let on3 = document.getElementById("atrapa2");
+
+on3.style.top = 89 + "%";
+on3.style.left = 60 + "%";
+
+await sleep(1000);
+
+document.getElementById("borderek").innerHTML += "<div id=\"atrapa3\" class=\"kulka\">Ty</div>"
+let atrapa2 = document.getElementById("atrapa3");
+
+atrapa2.style.top = 70 + "%";
+atrapa2.style.left = 60 + "%";
+
+on3.style.top = 30 + "%";
+on3.style.left = 60 + "%";
+
+await sleep(1000);
+
+on.style.top = 30 + "%";
+on.style.left = 66 + "%";
+
+atrapa2.style.top = 70 + "%";
+atrapa2.style.left = 70 + "%";
+
+on3.style.top = 55 + "%";
+on3.style.left = 77 + "%";
+
+await sleep(1000);
+
+on.style.top = 40 + "%";
+on.style.left = 10 + "%";
+
+atrapa2.style.top = 87 + "%";
+atrapa2.style.left = 44 + "%";
+
+on3.style.top = 78 + "%";
+on3.style.left = 52 + "%";
+
+await sleep(1000);
+
+clear();
+SetWykrywacz("Obecnie nikogo nie ma w pobliżu");
+niepoczytalnosc(); 
+
+}
+
+async function sobieski()
+{
+
+    SetWykrywacz("Obiekt Jan III Sobieski znajduje się 100m od ciebie");
+document.getElementById("borderek").innerHTML += "<div id=\"sobieski\" class=\"kulka\">Js</div>"
+let on = document.getElementById("sobieski");
+
+on.style.top = 50 + "%";
+on.style.left = 3 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt Jan III Sobieski znajduje się 95m od ciebie");
+
+on.style.top = 60 + "%";
+on.style.left = 10 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt Jan III Sobieski znajduje się 80m od ciebie");
+
+on.style.top = 80 + "%";
+on.style.left = 18 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt Jan III Sobieski znajduje się 100m od ciebie");
+
+on.style.top = 89 + "%";
+on.style.left = 20 + "%";
+
+await sleep(1000);
+
+clear();
+SetWykrywacz("Obecnie nikogo nie ma w pobliżu");
+niepoczytalnosc(); 
+
+}
+
+async function ptak()
+{
+
+
+    SetWykrywacz("Obiekt Skowronka znajduje się 150m od ciebie");
+document.getElementById("borderek").innerHTML += "<div id=\"sk\" class=\"kulka\">Sk</div>"
+let on = document.getElementById("sk");
+
+on.style.top = 20 + "%";
+on.style.left = 1 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt Skowronka znajduje się 100m od ciebie");
+
+on.style.top = 20 + "%";
+on.style.left = 20 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt Skowronka znajduje się 80m od ciebie");
+
+on.style.top = 20 + "%";
+on.style.left = 25 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt Skowronka znajduje się 50m od ciebie");
+
+on.style.top = 20 + "%";
+on.style.left = 35 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt Skowronka znajduje się 20m od ciebie");
+
+on.style.top = 20 + "%";
+on.style.left = 50 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt Skowronka znajduje się 50m od ciebie");
+
+on.style.top = 20 + "%";
+on.style.left = 65 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt Skowronka znajduje się 80m od ciebie");
+
+on.style.top = 20 + "%";
+on.style.left = 75 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt Skowronka znajduje się 110m od ciebie");
+
+on.style.top = 20 + "%";
+on.style.left = 85 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt Skowronka znajduje się 150m od ciebie");
+
+on.style.top = 20 + "%";
+on.style.left = 94 + "%";
+
+await sleep(1000);
+
+clear();
+SetWykrywacz("Obecnie nikogo nie ma w pobliżu");
+niepoczytalnosc(); 
+}
+
+async function ptakd()
+{
+
+
+    SetWykrywacz("Obiekt Skowronka znajduje się 150m od ciebie");
+document.getElementById("borderek").innerHTML += "<div id=\"sk\" class=\"kulka\">Sk</div>"
+let on = document.getElementById("sk");
+
+on.style.top = 75 + "%";
+on.style.left = 1 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt Skowronka znajduje się 100m od ciebie");
+
+on.style.top = 75 + "%";
+on.style.left = 20 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt Skowronka znajduje się 80m od ciebie");
+
+on.style.top = 75 + "%";
+on.style.left = 25 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt Skowronka znajduje się 50m od ciebie");
+
+on.style.top = 75 + "%";
+on.style.left = 35 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt Skowronka znajduje się 20m od ciebie");
+
+on.style.top = 75 + "%";
+on.style.left = 50 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt Skowronka znajduje się 50m od ciebie");
+
+on.style.top = 75 + "%";
+on.style.left = 65 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt Skowronka znajduje się 80m od ciebie");
+
+on.style.top = 75 + "%";
+on.style.left = 75 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt Skowronka znajduje się 110m od ciebie");
+
+on.style.top = 75 + "%";
+on.style.left = 85 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Obiekt Skowronka znajduje się 150m od ciebie");
+
+on.style.top = 75 + "%";
+on.style.left = 94 + "%";
+
+await sleep(1000);
+
+clear();
+SetWykrywacz("Obecnie nikogo nie ma w pobliżu");
+niepoczytalnosc(); 
+}
+
+async function adi()
+{
+
+    alert("Uwaga! Dziś lokalnie możliwe burze oraz intensywne opady deszczu i gradu. Jeśli możesz, zostań w domu. Unikaj otwartych przestrzeni.")
+
+    await sleep(4000);
+
+    SetWykrywacz("Niezidentyfikowany obiekt latający znajduje się 150m od ciebie");
+document.getElementById("borderek").innerHTML += "<div id=\"adi\" class=\"kulka\">??</div>"
+let on = document.getElementById("adi");
+
+on.style.top = 75 + "%";
+on.style.left = 1 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Niezidentyfikowany obiekt latający znajduje się 100m od ciebie");
+
+on.style.top = 75 + "%";
+on.style.left = 20 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Niezidentyfikowany obiekt latający znajduje się 80m od ciebie");
+
+on.style.top = 75 + "%";
+on.style.left = 25 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("ADIEMUS znajduje się 50m od ciebie");
+
+on.style.top = 75 + "%";
+on.style.left = 35 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Niezidentyfikowany obiekt latający znajduje się 20m od ciebie");
+
+on.style.top = 75 + "%";
+on.style.left = 50 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("ADIEMUS znajduje się 50m od ciebie");
+
+on.style.top = 75 + "%";
+on.style.left = 65 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("ADIEMUS się 80m od ciebie");
+
+on.style.top = 75 + "%";
+on.style.left = 75 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("ADIEMUS się 80m od ciebie");
+
+on.style.top = 55 + "%";
+on.style.left = 75 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("Niezidentyfikowany obiekt latający się 75m od ciebie");
+
+on.style.top = 44 + "%";
+on.style.left = 75 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("ADIEMUS się 86m od ciebie");
+
+on.style.top = 34 + "%";
+on.style.left = 75 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("ADIEMUS się 100m od ciebie");
+
+on.style.top = 24 + "%";
+on.style.left = 75 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("ADIEMUS się 144m od ciebie");
+
+on.style.top = 14 + "%";
+on.style.left = 75 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("ADIEMUS się 150m od ciebie");
+
+on.style.top = 14 + "%";
+on.style.left = 85 + "%";
+
+await sleep(1000);
+
+SetWykrywacz("ADIEMUS się 160m od ciebie");
+
+on.style.top = 14 + "%";
+on.style.left = 95 + "%";
+
+
+clear();
+SetWykrywacz("Obecnie nikogo nie ma w pobliżu");
+niepoczytalnosc(); 
+}
+
+async function wincenty()
+{
+
+    SetWykrywacz("Obiekt Wincenty znajduje się 44m od ciebie");
+document.getElementById("borderek").innerHTML += "<div id=\"sk\" class=\"kulka\">Wi</div>"
+let on = document.getElementById("sk");
+
+on.style.top = 44 + "%";
+on.style.left = 44 + "%";
+
+await sleep(10000);
+
+clear();
+SetWykrywacz("Obecnie nikogo nie ma w pobliżu");
+niepoczytalnosc(); 
+
+}
+
+//wykrywacz
+function SetWykrywacz(co)
+{
+
+    document.getElementById("wykrywacz").innerHTML = co;
+
+
+}
+
+function clear()
+{
+
+document.getElementById("borderek").innerHTML = "<p id=\"wykrywacz\">Obecnie nikogo nie ma w pobliżu</p><div id=\"ty\" class=\"kulka\">Ty</div>"
+
+}
+
+</script>
+</html>

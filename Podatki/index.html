@@ -1,0 +1,857 @@
+<html lang="pl">
+<head>
+    <title id="title"></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <style>
+#body {
+   
+    display: flex;
+  justify-content: center;
+  background-size: 100%;
+  background-image: url('podatki.png');
+  background-repeat: no-repeat;
+}
+#tlo
+{
+
+    
+width: 98%;
+height: 45vw;
+font-size: 20px;
+align-self: center;
+text-align: center;
+background-color: rgba(49, 65, 48, 0.898);
+border-radius: 5px;
+
+
+}
+#tytul
+{
+
+font-size: 45px;
+
+}
+#imgl
+{
+
+width: 300px;
+height: 150px;
+border: 4px solid black;
+border-radius: 10px;
+
+}
+#motto
+{
+
+color: rgb(27, 27, 27);
+font-style: italic;
+}
+#zzart
+{
+    font-size: 30px;
+    color: rgb(60, 198, 25);
+    
+ 
+
+}
+#wroc
+{
+
+font-size: small;
+
+}
+#numer 
+{
+
+font-size: 27px;
+
+}
+#podatnikszczesliwy
+{
+display: inline;
+    color: rgb(60, 198, 25);
+
+
+}
+#podatnikszczesliwy:hover
+{
+
+    animation: oblakanyjas 0.4s cubic-bezier(0.55, 0, 1, 0.45) 0s 1 normal forwards;
+    color: rgb(255, 0, 0)
+}
+@keyframes oblakanyjas {
+	0%,
+	100% {
+		transform: translateX(0%);
+		transform-origin: 50% 50%;
+	}
+
+	15% {
+		transform: translateX(-30px) rotate(-6deg);
+	}
+
+	30% {
+		transform: translateX(15px) rotate(6deg);
+	}
+
+	45% {
+		transform: translateX(-15px) rotate(-3.6deg);
+	}
+
+	60% {
+		transform: translateX(9px) rotate(2.4deg);
+	}
+
+	75% {
+		transform: translateX(-6px) rotate(-1.2deg);
+	}
+}
+    </style>
+</head>
+<body id="body">
+
+
+
+    <div id="tlo"> 
+
+<div id="tytul">Żarty podatkowe na każdy dzień roku</div>
+<br>
+
+<div id="numer">Dzisiejszym żartem jest żart numer </div>
+<br>
+<div id="zzart">Prosimy czekać, księgowi pracują ciężko aby dostarczyć ci nowy żart podatkowy.</div>
+<br>
+<br>
+<div id="motto"></div>
+<div id="obrazek"><img id="imgl" src="PODATKIPODATKI.png"></div>
+<br>
+<div id="podatnik">Dzisiejszym <div id="podatnikszczesliwy" onclick="szczesliwypodatnikpokazanie()">szczęśliwym podatnikiem</div> jest numer: </div>
+<div id="twojnumer"></div>
+<div id="twojdzien"></div>
+<br>
+<div id="zobaczonezarty"></div>
+<br>
+<div id="wroc">Wróć jutro po więcej żartów o podatkach</div>
+    </div>
+
+
+
+    <script>
+
+
+
+
+//daty i podatki
+let dzisiaj = new Date();
+let poczatekRoku = new Date(dzisiaj.getFullYear(), 0, 0);
+
+
+let roznica = dzisiaj - poczatekRoku;
+
+
+let dni = Math.floor(roznica / (1000 * 60 * 60 * 24));
+console.log('Dzień w roku: ' + dni);
+
+let dzienTygodnia = dzisiaj.getDay();
+console.log("mamy dzisiaj " + dzienTygodnia);
+
+
+
+
+//dzisiejszy obrazek
+if (dzienTygodnia == 1)
+{
+
+    document.getElementById("imgl").src = "szkodliwy.png";
+    document.getElementById("motto").innerHTML = "\"Kiedy jan poniedziałek otwiera okno wtedy szkodliwość jest rzeczami martwymi\"";
+    document.getElementById("title").innerHTML = "podatkowe szkodliwości z morałem";
+}
+if (dzienTygodnia == 2)
+{
+
+    document.getElementById("imgl").src = "PODATKIPODATKI.png";
+    document.getElementById("motto").innerHTML = "\"we wtorki liczby sumują się z korzyścią dla głupich\"";
+    document.getElementById("title").innerHTML = "podatki z dużym poczuciem humoru";
+}
+if (dzienTygodnia == 3)
+{
+
+    document.getElementById("imgl").src = "niegodziwy.png";
+    document.getElementById("motto").innerHTML = "\"środa piątkiem niegodziwych\"";
+    document.getElementById("title").innerHTML = "podatki - żarty w centrum";
+
+}
+if (dzienTygodnia == 4)
+{
+
+    document.getElementById("imgl").src = "pit.png";
+    document.getElementById("motto").innerHTML = "\"przebiegły czwartkowe talary zawsze uczy latać\"";
+    document.getElementById("title").innerHTML = "podatki kawały kawał";
+
+}
+if (dzienTygodnia == 5)
+{
+
+    document.getElementById("imgl").src = "wybor.png";
+    document.getElementById("motto").innerHTML = "\"pocieszałem pieniądze w piątek i teraz latam... ty też możesz\"";
+    document.getElementById("title").innerHTML = "żarty podatki lecznicze";
+
+}
+if (dzienTygodnia == 6)
+{
+
+    document.getElementById("imgl").src = "napoleon.png";
+    document.getElementById("motto").innerHTML = "\"drobne podatowe inicjacje mogą być twoim sobotnim śniadaniem\"";
+    document.getElementById("title").innerHTML = "historia podatkowe żarty";
+
+}
+if (dzienTygodnia == 0)
+{
+
+    document.getElementById("imgl").src = "ważne.png";
+    document.getElementById("motto").innerHTML = "\"niedziela siesta nie może obejść się bez preludium podatkowego\"";
+    document.getElementById("title").innerHTML = "podatkowe swawole";
+
+}
+
+if ((dni >= 144) && (dni <= 146))
+{
+    //dzien slimaka
+    
+    document.getElementById("imgl").src = "dzienslimaka.gif";
+    document.getElementById("motto").innerHTML = "\"kto święci dziś dzień ślimaka ten nie choruje na raka\"";
+    document.getElementById("title").innerHTML = "dzień ślimaka";
+    
+}
+
+
+//licznik zobaczonych żartów
+let zobaczonezarty22222 = localStorage.getItem("zobaczone");
+console.log(zobaczonezarty22222)
+if (zobaczonezarty22222 == null)
+{
+
+let tablica = [];
+tablica[0] = dni;
+let jsonTablicy = JSON.stringify(tablica);
+localStorage.setItem('zobaczone', jsonTablicy);
+
+}
+else
+{
+   
+// Pobierz łańcuch JSON z Local Storage
+let jsonTablicy2 = localStorage.getItem('zobaczone');
+
+// Sparsuj łańcuch JSON z powrotem do tablicy
+let odzyskanaTablica2 = JSON.parse(jsonTablicy2);
+
+console.log(odzyskanaTablica2); // Wyświetli: [1, 2, 3, 4, 5]
+let IloscZobaczonychZartow = (odzyskanaTablica2.length);
+
+
+//tutaj fr licznik wyświetlany na stronie
+console.log("zobaczone zarty" + IloscZobaczonychZartow);
+
+if (IloscZobaczonychZartow == 1)
+{
+
+    document.getElementById("zobaczonezarty").innerHTML = "Pierwszy który przemówi zawsze będzie zapamiętany jako ten który nie płaci";
+
+}
+else if (IloscZobaczonychZartow == 10)
+{
+
+    document.getElementById("zobaczonezarty").innerHTML = "W oszczędnościach liczą się zera";
+
+}
+else if (IloscZobaczonychZartow == 44)
+{
+
+    document.getElementById("zobaczonezarty").innerHTML = "a stron podatków ma on czterdzieści i cztery";
+
+}
+else if (IloscZobaczonychZartow == 50)
+{
+    document.getElementById("zobaczonezarty").innerHTML = "Twoje dzisiejsze śniadanie jadłeś razy już 50 ";
+}
+else if (IloscZobaczonychZartow == 99)
+{
+    document.getElementById("zobaczonezarty").innerHTML = "Ten jeden który cię dzieli może też być centem ";
+}
+else if (IloscZobaczonychZartow == 100)
+{
+    document.getElementById("zobaczonezarty").innerHTML = "\"A były ich setki\" - cent ";
+}
+else if (IloscZobaczonychZartow == 44)
+{
+    document.getElementById("zobaczonezarty").innerHTML = "a stan konta jego dzterdzieści i cztery ";
+}
+else if (IloscZobaczonychZartow == 182)
+{
+    document.getElementById("zobaczonezarty").innerHTML = "Podatkowa sielanka już niedaleko... zostało 182";
+}
+else if (IloscZobaczonychZartow == 122)
+{
+    document.getElementById("zobaczonezarty").innerHTML = "Widzisz " + IloscZobaczonychZartow + " lecz" + (dzienTygodnia * 5) + "widzi ciebie";
+}
+else if (IloscZobaczonychZartow == 199)
+{
+    document.getElementById("zobaczonezarty").innerHTML = "piszę 100 powiadam 99 a płacę 1";
+}
+else if (IloscZobaczonychZartow == 200)
+{
+    document.getElementById("zobaczonezarty").innerHTML = "200";
+}
+else if (IloscZobaczonychZartow == 222)
+{
+    document.getElementById("zobaczonezarty").innerHTML = "Odpowiedzią może być ten po twojej prawej więc lepiej go pilnuj";
+}
+else if (IloscZobaczonychZartow == 244)
+{
+    document.getElementById("zobaczonezarty").innerHTML = "Kto pieniędzmi głoduję ten pieniądze je";
+}
+else if (IloscZobaczonychZartow == 250)
+{
+    document.getElementById("zobaczonezarty").innerHTML = "Chwila";
+}
+else if (IloscZobaczonychZartow == 299)
+{
+    document.getElementById("zobaczonezarty").innerHTML = "Zwycięstwo... niektórzy je deptają... inni jedzą na obiad... a jeszcze inni...";
+}
+else if (IloscZobaczonychZartow == 300)
+{
+    document.getElementById("zobaczonezarty").innerHTML = "300";
+}
+else if (IloscZobaczonychZartow == 333)
+{
+    document.getElementById("zobaczonezarty").innerHTML = "kondolencję tobie składam";
+}
+else if (IloscZobaczonychZartow == 360)
+{
+    document.getElementById("zobaczonezarty").innerHTML = "to już jutro";
+}
+else if (IloscZobaczonychZartow == 361)
+{
+    document.getElementById("zobaczonezarty").innerHTML = "Prawda uniwersalnego numer 61: szkodliwy przeczyta... głupi zapłaci";
+}
+else if (IloscZobaczonychZartow == 362)
+{
+    document.getElementById("zobaczonezarty").innerHTML = "Prawda uniwersalnego numer 62: Nawet jeżeli pociąłbyś kartkę na dwie części i jedną z nich dał na cele obiecujące triumf... to kartki i tak nie odzyskasz";
+}
+else if (IloscZobaczonychZartow == 363)
+{
+    document.getElementById("zobaczonezarty").innerHTML = "Przyjdź jutro po prawdę, świat, sielankę, złoto, triumf i uniwersalizm... <br> CZEKAMY";
+}
+else if (IloscZobaczonychZartow == 2)
+{
+    document.getElementById("zobaczonezarty").innerHTML = "Podwójne zwycięstwo jest jak podwójna wypłata... zawsze miła do zjedzenia";
+}
+else if (IloscZobaczonychZartow == 3)
+{
+    document.getElementById("zobaczonezarty").innerHTML = "w życiu ważna jest zasada trzech jedności: podatkowej, pieniężnej i głupiej";
+}
+else if (IloscZobaczonychZartow >= 364)
+{
+    document.getElementById("zobaczonezarty").innerHTML = "Gratulacje udało ci się zobaczyć wszystkie żarty! Złoto! WIELKIE ZŁOTO! WYGRANA! KOŁEM KRĘĆ KOŁEM KRĘĆ! TRIUMF!";
+}
+else
+{
+
+    document.getElementById("zobaczonezarty").innerHTML = "Widziałeś już " + IloscZobaczonychZartow + " żartów";
+
+}
+
+
+
+
+if(odzyskanaTablica2.includes(dni) == false)
+{
+odzyskanaTablica2[odzyskanaTablica2.length] = dni;
+
+
+
+let jsonTablicy3 = JSON.stringify(odzyskanaTablica2);
+localStorage.setItem('zobaczone', jsonTablicy3);
+}
+
+}
+
+
+
+
+
+//numer żartu
+document.getElementById("numer").innerHTML += dni;
+
+//szczesliwy podatnik
+let szczesciaz =  (dzienTygodnia + 1) * dni * 3;
+document.getElementById("podatnik").innerHTML += szczesciaz;
+
+//zmiana motywu zależna od dnia
+
+//dni = 113;
+if ((dni >= 44) && (dni <= 46))
+{
+//walentynki
+document.getElementById("tlo").style.backgroundColor = "rgba(65, 48, 48, 0.898)";
+document.getElementById("zzart").style.color = "rgb(200, 25, 25)";
+document.getElementById("body").style.backgroundImage = "url('walentynki.png')";
+}
+
+if ((dni >= 88) && (dni <= 91))
+{
+//wielkanoc
+    document.getElementById("tlo").style.backgroundColor = "rgba(65, 48, 63, 0.898)";
+document.getElementById("zzart").style.color = "rgb(169, 25, 198)";
+document.getElementById("body").style.backgroundImage = "url('wielkanoc.png')";
+
+}
+
+if ((dni >= 112) && (dni <= 114))
+{
+    //dzien ziemi
+    
+    document.getElementById("tlo").style.backgroundColor = "rgba(57, 79, 67, 0.898)";
+    document.getElementById("zzart").style.color = "rgb(25, 198, 97)";
+    document.getElementById("body").style.backgroundImage = "url('ziemia.png')";
+}
+if ((dni >= 174) && (dni <= 178))
+{
+    //począte wakacji
+    
+    document.getElementById("tlo").style.backgroundColor = "rgba(75, 66, 56, 0.898)";
+    document.getElementById("zzart").style.color = "rgb(198, 155, 25)";
+    document.getElementById("body").style.backgroundImage = "url('wakacje.png')";
+}
+if ((dni >= 144) && (dni <= 146))
+{
+    //począte wakacji
+    
+    document.getElementById("tlo").style.backgroundColor = "rgba(75, 66, 56, 0.898)";
+    document.getElementById("zzart").style.color = "rgb(198, 155, 25)";
+    document.getElementById("body").style.backgroundImage = "url('slimak.png')";
+}
+if ((dni >= 338) && (dni <= 366))
+{
+    //święta
+    
+    document.getElementById("tlo").style.backgroundColor = "rgba(48, 65, 62, 0.898)";
+    document.getElementById("zzart").style.color = "rgb(25, 198, 169)";
+    document.getElementById("body").style.backgroundImage = "url('swieta.png')";
+}
+
+
+//generowanie numeru szczęśliwego podatnika
+let podatnik20 = localStorage.getItem("numerpodatnika");
+if (podatnik20 == null)
+{
+let losowydzientygodnia = Math.floor(Math.random() * 7) + 1;
+let losowydzienroku =Math.floor(Math.random() * 365) + 1;
+
+let nrpodatnika = losowydzientygodnia * losowydzienroku * 3;
+localStorage.setItem("numerpodatnika", nrpodatnika);
+}
+
+//wyswietlenie numeru szczesliwego podatnika
+function szczesliwypodatnikpokazanie()
+{
+
+document.getElementById("twojnumer").innerHTML = "Twój szczęśliwy numer podatkowy to " + podatnik20;
+
+
+}
+
+//to twój dzień
+if (podatnik20 == szczesciaz)
+{
+
+document.getElementById("twojdzien").innerHTML = "dzisiaj jest TWÓJ szczęśliwy dzień podatkowy"; 
+
+}
+
+//licznik zobaczonych zartow
+
+
+
+//żarty generowanie
+
+let zartylista = ["podatnik zjadł twe połączenie internetowe proszę spróbuj ponownie później", 
+"Dlaczego podatnik to taki mistrz pełen sprzeczności? Bo płacąc podatki, jednocześnie czujesz się jak mistrz swobodnego lotu i uwięziony wróbel w jednym!", //1 stycznia
+"Co mówi podatnik, gdy rząd chce więcej pieniędzy? \"Czy mogę zapłacić w cukierkach?\"", //2
+"Dlaczego podatnicy są jak łososie w rzece? Bo płynąc pod prąd podatków, nie dość, że tracą na swoim kursie, to jeszcze muszą skakać przez wszystkie przeszkody rachunków!",
+"Dlaczego podatnicy to taka ekipa z kosmosu? Bo w ich portfelach zawsze panuje ciemność, a rachunki latają jak UFO!",//4
+"Dlaczego podatki są jak długopis? Bo im więcej ich używasz, tym szybciej się zużywają, a potem trzeba kupić nowy!", //5
+"Wiesz, dlaczego podatki są jak deszcz? Bo zawsze się pojawią, nawet gdy ich nie chcesz, i sprawiają, że chcesz schować się pod parasolem.", //6
+"Jaki jest ulubiony sport podatków? Dżudo, bo zawsze chcą cię przewrócić na podatek.", //7
+"Dlaczego podatki lubią chodzić do kina? Bo lubią oglądać, jak ludzie płaczą przy widoku cen popcornu, jakie można by zapłacić gdyby nie podatki.", //8
+"Co powiedział podatek, gdy zapytano go, dlaczego jest zawsze tak niemiły? \"Bo tak jak światło słoneczne, jestem nieunikniony, ale przynajmniej nie daję ciepła.\"", //9
+"Co mówi księżyc do podatków? \"Czy możemy zrobić pakt? Pozwolisz mi na swój wschód, a ja pozwolę ci na swój podatek.\"", //10
+"Dlaczego podatki są jak kaktusy? Bo są ostre, bolesne i zawsze się pojawiają, gdy się tego nie spodziewasz!", //11
+"Jakie jest ulubione danie podatków? Pieniądze na talerzu, z dodatkiem płaczu i skarg klientów.", //12
+"Co mówi podatek, gdy ktoś próbuje go uniknąć? \"Nawet próby ucieczki będą traktowane jako przychód i opodatkowane!\"", //13
+"Dlaczego podatki lubią spacery? Bo im dają czas na zaplanowanie kolejnego ataku na twoje portfele!", //14
+"Jakie jest ulubione danie podatków? Pieniądze na talerzu, z dodatkiem płaczu i skarg klientów.", //15
+"Co mówi podatek, gdy ktoś próbuje go uniknąć? \"Nawet próby ucieczki będą traktowane jako przychód i opodatkowane!\"", //16
+"Dlaczego podatki lubią spacery? Bo im dają czas na zaplanowanie kolejnego ataku na twoje portfele!", //17
+"Dlaczego podatki nigdy nie chodzą na wakacje? Bo są zbyt zajęte polowaniem na twoje zarobki!", //18
+"Jakie są ulubione zabawki podatków? Kalkulatory, aby mogły cię policzyć jeszcze dokładniej!", //19
+"Dlaczego podatki są jak dynie na Halloween? Bo po prostu chcą wydrzeć ci pieniądze, zamiast dawać słodycze!", //20
+"Co mówi podatek, gdy przychodzi na imprezę? \"Jestem tu, aby popsuć zabawę, ale przynajmniej zostawiam paragon.\"", //21
+"Jakie są hobby podatków? Zbieranie monet - twoich monet!", //22
+"Dlaczego podatki są jak bananowy samolot? Bo nie ma sensu, ale nadal dostajesz kopniaka w portfel!", //23
+"Dlaczego podatki to jak szczypiorek? Bo ciągle się pojawiają, nawet jeśli ich nie chcesz, i zostawiają cię płaczącego!", //24
+"Jakie są ulubione zwierzęta podatków? Gryzonie, bo ciągle gryzą twoje pieniądze!", //25
+"Dlaczego podatki nigdy nie biorą prysznica? Bo są zbyt zajęte kąpaniem się w twoich oszczędnościach!", //26
+"Dlaczego podatki to jak straszny sen? Bo zawsze budzisz się z poczuciem straconych pieniędzy i uświadamiasz sobie, że to było tylko rzeczywiste życie.", //27
+"Dlaczego księgowi to jak kaktusy? Bo mają kolce, ale zamiast wody potrzebują jedynie rozliczeń podatkowych!", //28
+"Co mówi podatek, gdy spotyka księgowego na imprezie? \"Cześć! Mam nadzieję, że jesteś gotów na szalony taniec amortyzacji!\"", //29
+"Dlaczego podatki to jak pociąg bez kierownika? Bo jedzie w przód, ale nikt nie wie, dokąd zmierza!", //30
+"Jakie są ulubione zwierzęta podatków? Pingwiny, bo mają białe brzuchy, a kieszonki pełne podatków!", //31
+"Co mówi podatek, gdy podatnik próbuje go oszukać? \"Próbujesz mnie oszukać? To jak próba nauczania ryby pływania w kawie!\"", //luty 32 01 
+"Dlaczego podatki to jak balet z kangurami? Bo są skaczące, ale zawsze kończą na łupie!", //luty 33 02 
+"Co mówi podatek, gdy podatnik pyta go o pomoc? \"Przepraszam, czy mogę ci pomóc? Oczywiście, że nie! To byłoby zbyt logiczne!\"", //luty 34 03 
+"Dlaczego księgowi to jak superbohaterowie? Bo noszą kalkulatory zamiast peleryn!", //luty 35 04 
+"Jakie są ulubione instrumenty podatków? Kastaniety, bo lubią tłuc twoje oszczędności!", //luty 36 05 
+"Dlaczego podatki to jak sudoku? Bo zawsze pojawia się nowe rozwiązanie, które nikt nie rozumie!", //luty 37 06 
+"Co mówi podatek, gdy podatnik pyta, dlaczego tak dużo zabiera? \"Dlaczego nie? To nie jest pytanie, to stwierdzenie bez sensu!\"", //luty 38 07
+"Dlaczego podatki są jak tłusty czwartek? Bo im więcej podatków płacisz, tym więcej pączków dostajesz od urzędu skarbowego, ale nie możesz ich zjeść, bo są zrobione z papieru!", //luty 39 08 
+"Co mają wspólnego podatki z tłustym czwartkiem? Ano to, że im wyższy podatek, tym większa szansa na znalezienie pączka w portfelu, ale niestety, to tylko iluzja, bo fiskus go zjada!", //luty 40 09 
+"Jakie są ulubione zwierzęta podatków? Wiewiórki, bo ciągle ukrywają twoje pieniądze!", //luty 41 10 
+"Dlaczego podatki to jak chodzenie po linie naftowej? Bo zawsze kończy się poślizgiem i poparzeniem!", //luty 42 11
+"Dlaczego podatki to jak lody? Bo są zimne i drażniące dla zębów, ale nie możesz się ich pozbyć!", //luty 43 12 
+"Co mają wspólnego podatki z Walentynkami? Ano to, że im wyższy podatek, tym większa szansa, że otrzymasz bukiet kwiatów od urzędu skarbowego, ale niestety, będą to tylko kwiaty podatkowe!", //luty 44 13 
+"Czym różnią się podatki od Walentynek? Podatki to jak Walentynki - im więcej płacisz, tym bardziej się cieszysz, że to już minęło, ale zaraz potem czujesz się osamotniony/a i pozbawiony/a sensu życia!", //luty 45 14 
+"Czym różnią się podatki od Walentynek? Podatki są jak Walentynki - im bardziej się starasz, tym większy rachunek dostajesz, ale przynajmniej nie musisz dzielić go z nikim innym!", //luty 46 15
+"Co mówi podatek, gdy podatnik próbuje się bronić? \"Próbujesz się ode mnie bronić? To jak próba strzelania gumową kulą do czołgu!\"", //luty 47 16 
+"Dlaczego podatki to jak pogoda wirtualna? Bo zmieniają się tak często, że trudno uwierzyć, że są prawdziwe!", //luty 48 17 
+"Co mówi podatek, gdy podatnik próbuje znaleźć luki w przepisach podatkowych? \"Dziękuję za twój wysiłek, ale zasady są jak łuski banana - nie do złamania!\"", //luty 49 18
+"Dlaczego księgowi to jak papugi? Bo powtarzają to samo bez przerwy, ale nikt nie rozumie, co właściwie mówią!", //luty 50 19
+"Dlaczego podatki to jak loteria? Bo nigdy nie wiesz, czy wygrasz, ale zawsze tracisz!", //luty 51 20 
+"Dlaczego podatki to jak film bez zakończenia? Bo niezależnie od tego, jak bardzo się starasz, zawsze brakuje ci ostatniego akapitu!", //luty 52 21 
+"Co mówi podatek, gdy podatnik prosi o litość? \"Litość? To nie jest żaden kierunek na mojej mapie podatkowej!\"", //luty 53 22 
+"Dlaczego księgowi to jak długopisy? Bo zawsze mają kilka kolorów, ale zamiast atramentu, wydzielają równanie bilansowe!", //luty 54 23
+"Co mówi księgowy, gdy pytasz go o wakacje? \"Wakacje? Oczywiście, że tak! Będę liczył na plaży, zamiast piasku używając kalkulatora!\"", //luty 55 24 
+"Dlaczego księgowi to jak wiewiórki? Bo zawsze chowają swoje kalkulatory w ukrytych zakamarkach!", //luty 56 25 
+"Jakie są ulubione narzędzia księgowych? Młotek, do wbijania liczb w tabelki!", //luty 57 26
+"Co mówi księgowy, gdy widzi labirynt podatkowych przepisów? \"O, to będzie zabawne! Kocham się gubić w kolumnach i rzędach!\"", //luty 58 27
+"Dlaczego podatki to jak bańka mydlana? Bo wydają się być piękne, dopóki nie pęknie, a ty nie zostaniesz ochlapany rachunkami!", //luty 59 28
+"Co mówi podatek, gdy podatnik stara się go oszukać? \"Próbujesz mnie oszukać? To jak próba przekonania kota, żeby przeszedł na dietę!\"", //luty 60 29
+"Dlaczego księgowi to jak samochody na autostradzie? Bo ciągle liczą, ale zawsze tracą gaz na prowadzenie!", // marzec 61 01
+"Dlaczego podatki to jak bułka z masłem? Bo im więcej ich używasz, tym szybciej topnieją twoje oszczędności!", // marzec 62 02
+"Co mówi podatek, gdy podatnik próbuje negocjować? \"Negocjacje? To zabawne! To jak próba uczenia złotówki śpiewać operę!\"", // marzec 63 03
+"Dlaczego podatki to jak wspinaczka na górę? Bo im wyższe się wspinasz, tym trudniej jest oddychać!", // marzec 64 04
+"Jakie są ulubione hobby podatków? Łowienie ryb, bo zawsze łowią najwięcej pieniędzy!", // marzec 65 05
+"Dlaczego podatki to jak przeprawa przez bagno? Bo im dalej idziesz, tym większe podatki!", // marzec 66 06
+"Dlaczego poduszki finansowe to jak skrzynie skarbów? Bo zawsze są pełne złotych monet... albo przynajmniej tak się wydaje, dopóki nie otworzysz!", // marzec 67 07
+"Dlaczego poduszki finansowe to jak kozy na pastwisku? Bo zawsze żują trawę, czyli twoje oszczędności, zanim zdążysz się położyć!", // marzec 68 08
+"Co mówi niegodziwa poduszka finansowa, gdy próbujesz się położyć? \"Ouch! To jest moje miejsce! Możesz leżeć na swoich marzeniach o bogactwie, ale nie na mnie!\"", // marzec 69 09
+"Co mówi niegodziwa poduszka finansowa, gdy widzi twój plan oszczędzania? \"Ha! Myślisz, że mnie oszukasz? Mam większą siłę wytrzymałości, niż twoje postanowienia noworoczne!\"", // marzec 70 10
+"Dlaczego podatki to jak przysłowiowa kura? Bo zawsze trzeba czekać, aż złoży jajko podatkowe, które nigdy nie wykluje się!", // marzec 71 11
+"Dlaczego podatki to jak łamigłówki z klocków LEGO? Bo nigdy nie możesz ich złożyć tak, aby było jasne, jakie jest prawidłowe rozwiązanie!", // marzec 72 12
+"Bywa, że podatek to jak dzielisz jabłko na kawałki, aż wreszcie zostaje jedynie pestka, którą urzędnik zjada i mówi: \"Oto twój podatek, jest jak liczba pi, ale bez pięknego smaku\".", // marzec 73 13
+"Podatek od nieruchomości jest jak próba oszacowania dokładnej wartości liczby pi - można się zbliżyć, ale nigdy nie można być pewnym, czy to w pełni właściwa wartość.", // marzec 74 14 dzień liczby pi
+"O, nieszczęsny podatniku, jeśli potrzebujesz pomocy, zgłoś się do księgowego! On to jak alchemik, który potrafi zamienić twoje złote dukaty w litewskie książki i zniknąć w obliczu podatkowej burzy.", // marzec 75 15
+"Gdy podatek na horyzoncie się pojawia, księgowy wkracza do gry. Jego księgi to jak magiczne zwierciadło, w którym litewskie słowa zamieniają się w zrozumiałe dla urzędnika frazy.", // marzec 76 16 dzień przemytnika litewskiej ksiazki
+"Dlaczego idiota ukrywa litewskie książki w swojej piwnicy? Bo myśli, że podatek od nich jest wirtualny!", // marzec 77 17
+"O! Podatki, jak gwiazdy na niebie! Zawsze są, ale nigdy nie wiesz, jak się do nich dostać!", // marzec 78 18
+"Dlaczego wróble są mistrzami finansów? Bo znają się na budżecie - cały dzień szukają darmowych przekąsek!", // marzec 79 19
+"Jak się nazywa wróbel, który prowadzi interesy? Włóczęga finansowa!", // marzec 80 20 dzień wróbla
+"Co wróbel robi, gdy znajdzie złoty monetę? Płacze, bo wie, że nie może jej przekształcić w ziarenka!", // marzec 81 21
+"Dlaczego podatki są jak kosmiczny taniec? Bo czasami wydają się być poza zasięgiem grawitacji!", // marzec 82 22
+"Co mówi księgowy gdy dostanie atak kreatywności? \"Zróbmy z podatków sztukę! Nazwijmy to 'Deklaracja podatkowa: Szkic w czterech aktach!'\"", // marzec 83 23 tutaj będą żarty o harpunach podatkowych
+"Dlaczego podatki są jak podróż do krainy absurdów? Bo im dalej, tym dziwniejsze zasady!", // marzec 84 24
+"Hoho! Podatki, jak skrzaty w ogrodzie! Znikają twoje pieniądze, a zostawiają tylko śmiech głupka!", // marzec 85 25
+"Czemu konie muszą płacić podatek? Bo jeżdżą tylko w jedną stronę ulicy, jakby mieli tańczyć walc z banknotami!", // marzec 86 26
+"Dlaczego chmury nie płacą podatku za korzystanie z nieba? Bo lecą poza zasięgiem kasy skarbowej!", // marzec 87 27
+"Dlaczego Wielkanoc jest ulubionym świętem księgowych? Bo to jedyny dzień, kiedy mogą liczyć jajka jako koszty firmowe!", // marzec 88 28
+"Co mówi księgowy, gdy pytają go o świąteczne wydatki? \"To jak szukanie zająca w gąszczu zeznań podatkowych - wszystko się miesza!\"", // marzec 89 29
+"Jakie jest ulubione danie podczas Wielkanocy dla księgowych? Zestaw zielonych świecidełek - podatkowych zielonych jajek!", // marzec 90 30
+"Wiesz, dlaczego zające nie płacą podatków? Bo mają kryjówki, a nie kryjówki fiskalne!", // marzec 91 31 //wielkanoc
+"Dlaczego księgowi kochają Prima Aprilis? Bo mogą wysyłać fałszywe zeznania podatkowe jako żart, a potem obwiniać to na konto \"Prima Aprilisowego psikusa\"!", //92 01 prima aprilis
+"Co mówi podatnik, który otrzymuje niespodziewane powiadomienie o podwyżce podatków na Prima Aprilis? \"To musi być żart! Nawet rachunek za powietrze jest niższy niż ta propozycja!\"", //93 02
+"Dlaczego Minister Finansów ogłosił na Prima Aprilis nowy \"podatek od uśmiechu\"? Bo chciał zobaczyć, czy ludzie będą płacić podatek za darmowe uczucie szczęścia!", //94 03
+"Co to jest dla księgowego szczyt elegancji? Kiedy zamiast garnituru nosi abacus z kryształami!", //95 04
+"Dlaczego podatki są jak bajka o Alicji w Krainie Czarów? Bo czasem wydaje się, że wpadasz w króliczą dziurę, gdy próbujesz je zrozumieć!", //96 05
+"Co mówi księgowy, gdy widzi skomplikowany formularz podatkowy? \"To jest jak morski potwór! Musimy użyć harpuna podatkowego, żeby go pokonać!\"", //97 06
+"Dlaczego księgowi noszą peleryny? Bo są gotowi stawić czoło potworom zwanym audytorami!", //98 07
+"Co robi księgowy, gdy chce się zrelaksować? Gra w grę wideo zatytułowaną \"Podatkowy Chaos: Bitwa o Bilans\"!", //99 08
+"Dlaczego podatki są jak bańka mydlana? Bo im więcej próbujesz ich unikać, tym bardziej skomplikowane i bezsensowne stają się twoje działania!", //100 09
+"Co robi księgowy, kiedy wygrywa na loterii? Próbując policzyć ile musi zapłacić z wygranej, wpada w błędny cykl obliczeń, aż w końcu wraca do pracy.", //101 10
+"Dlaczego podatki są jak lody w wafelku? Bo zawsze chciałbyś więcej, ale zawsze dostajesz tylko jedną gałkę, a w dodatku zimną.", //102 11
+"Co mówi księgowy, gdy słyszy o obniżeniu podatków? \"To tak, jakby ktoś przyniósł ci torbę z pieniędzmi, a potem wyjął je z powrotem, mówiąc: 'to tylko żart, musisz je oddać'\".", //103 12
+"Co robi księgowy na wakacjach? Siedzi na plaży, próbując budować zamki z piasku z kalkulatora podatkowego, zanim fala przypomni mu o nadchodzącym terminie deklaracji.", //104 13
+"Dlaczego podatki są jak loteria? Bo nigdy nie wiesz, czy wygrasz zwrot podatku czy też dostaniesz mandat za błędy w deklaracji!", //105 14
+"Dlaczego księgowy nosi na głowie kalkulator? Bo twierdzi, że to jego kapelusz podatkowy, który przyciąga liczby jak magnes!", //106 15
+"Co mówi księgowy, kiedy dostaje pytanie o ulgi podatkowe? \"Hmm... Czy możemy je zamienić na punkty lojalnościowe w księgarni?\"", //107 16
+"Dlaczego podatki są jak węże w kosmosie? Bo nikt nie wie, jak się tam znalazły, ale wszyscy muszą się z nimi zmierzyć!", //108 17
+"Co robi księgowy, gdy zobaczy, że klient przyniósł swoje dokumenty w kopercie z uśmiechem? Wkracza w tryb alarmowy i zaczyna poszukiwania, czy nie ma w niej ukrytej pułapki podatkowej!", //109 18
+"Dlaczego księgowy nosi przy sobie luksusowy zeszyt na kalkulacje? Bo wierzy, że im bardziej ekskluzywny, tym mniejsze straty podatkowe!", //110 19
+"Co mówi księgowy, gdy ktoś prosi go o wyjaśnienie skomplikowanego przepisu podatkowego? \"Hmm... To jak pytanie o sens istnienia bananowej wyspy na księżycu!\"", //111 20
+"Dlaczego podatki są jak Dzień Ziemi? Bo zawsze wydają się być wieczne, aż nagle nadchodzi kolejny!", //112 21
+"Głupi Szekspir poszedł do urzędu skarbowego w Dniu Ziemi i zapytał, czy może odliczyć koszty sadzenia drzewek jako wydatki na ochronę środowiska. Urzędnik odpowiedział: \"Oczywiście, ale tylko jeśli drzewa będą produkować pieniądze\".", //113 22 dzień ziemi
+"Jakie jest ulubione drzewo księgowych w Dniu Ziemi? Oczywiście, kalkulator!", //114 23
+"Dlaczego podatki są jak kosmiczna wyprawa? Bo im dłużej się nimi zajmujesz, tym bardziej tracisz poczucie, że wiesz, gdzie jesteś!", //115 24
+"Co robi księgowy, kiedy czuje się zestresowany przed terminem deklaracji podatkowej? Organizuje sobie imprezę z księgowymi z innej galaktyki, bo przecież każdy wie, że tamte mają lżejsze przepisy!", //116 25
+"Dlaczego księgowi noszą skafandry? Bo uważają, że to najlepsza ochrona przed atakiem wściekłych dokumentów podatkowych!", //117 26
+"Dlaczego podatki są jak labirynt z kosmicznych bajek? Bo czasem czujesz, że wpadłeś w czarną dziurę i nigdy nie wyjdziesz z tego!", //118 27
+"Co robi księgowy, kiedy dostaje okazję odliczenia kosztów podróży służbowej na księżyc? Zastanawia się, czy będzie mógł odliczyć także paliwo rakietowe!", //119 28
+"Co robi księgowy, kiedy potrzebuje odrobiny humoru? Ogląda stare deklaracje podatkowe i śmieje się z własnych błędów!", //120 29
+"Co mówi księgowy, kiedy pytają go o ulgi podatkowe? \"Ulgi? Czy to są te rzeczy, które widzisz tylko w swoich najdziwniejszych snach o księgowości?\"", //121 30
+"Dlaczego księgowy nosi w kieszeni kalkulator? Bo nigdy nie wiesz, kiedy nagle pojawi się potrzeba obliczenia stawki podatku od komety!", // 122 maj 01
+"Dlaczego podatki są jak szachy? Bo im więcej ruchów wykonujesz, tym bardziej skomplikowana staje się sytuacja!", //123 02
+"Co robi księgowy, kiedy dostaje kredyt podatkowy? Organizuje sobie prywatną paradę z plakatami \"Kredyt Podatkowy - Uwielbiamy Cię!\".", //124 03
+"Dlaczego księgowi chodzą zawsze ze złożonymi rękami? Bo trzymają w nich ukryte zasoby wiedzy o podatkach!", //125 04
+"Co mówi księgowy, kiedy dostaje formularz podatkowy z kolorowymi obrazkami? \"Czy to jakiś nowy trend artystyczny czy tylko próba zmylenia mnie?\"", //126 05
+"Co mówi rosyjski prezenter radiowy, gdy ogłasza nowy podatek? \"Dobra wieść: mamy dla was nowy podatek! Zła wieść: to nie żart na Dzień Kawałka!\"", //127 06
+"Radiowy prezenter ogłasza nowy podatek z uśmiechem na ustach. \"O, to nie żart na prima aprilis, to nowy podatek! Kto powiedział, że radio nie może być zabawne?\"", //128 07 rosja dzień radia
+"Na radia w Rosji grają reklamy podatkowe. \"O, te radiowe reklamy! To jakby w powietrzu wisiał podatkowy smog, który zakłóca wszystkie melodie!\"", //129 08
+"Dlaczego podatki są jak wędrowny teatr? Bo za każdym rogiem czeka nowy akt, a koniec nigdy nie jest bliski!", //130 09
+"Co robi księgowy, gdy musi wyjaśnić klientowi skomplikowany przepis podatkowy? Organizuje przedstawienie teatralne z udziałem kukiełek z kalkulatorami!", //131 10
+"Dlaczego księgowi noszą peleryny? Bo wierzą, że są superbohaterami w walce ze złymi duchami zwanymi kontroli podatkowymi!", //132 11
+"Co mówi księgowy, gdy znajduje błąd w zeznaniu podatkowym klienta? \"To jak odkrycie skarbu! Ale niestety, ten skarb należy oddać do Urzędu Skarbowego.\"", //133 12
+"Chłopak, w gorączce, ucieka przed groźnym gościem z urzędu skarbowego. \"Gdzie uciec przed falą podatkową? Nawet zając by nie ogarnął tylu formularzy!\"", //134 13
+"Duży zając odbiera list z wymaganiami podatkowymi i westchnął: \"Kurczę, czy te papiery nie powinny raczej rosnąć na drzewach, a nie w rękach urzędnika?\"", //135 14
+"Urzędnik krzyczy, zagłuszając wszelkie dźwięki: \"Hej, ludzie! Zróbmy dzień podatkowy, gdzie żarty będą w formularzach, a śmiech wśród rozliczeń!\"", //136 15
+"Dlaczego podatki są jak złote rybki? Bo im więcej ich złapiesz, tym trudniej spełnić wszystkie ich życzenia!", //137 16
+"Co mówi księgowy, kiedy widzi kolorowy parasol? \"Czy to alegoria opodatkowania: kolorowe, ale na końcu zawsze jest deszcz dokumentów?\"", //138 17
+"Dlaczego podatki są jak wirus komputerowy? Bo zawsze, gdy myślisz, że masz kontrolę, pojawia się nowa aktualizacja systemu podatkowego!", //139 18
+"Co robi księgowy, kiedy czeka na decyzję w sprawie ulgi podatkowej? Wymyśla plany na wykorzystanie dodatkowych pieniędzy, ale za każdym razem odkłada je na bok, bo może być to tylko złudzenie!", //140 19
+"Kiedy księgowy ma chwilę kreatywności, sugeruje: \"Może zamiast podatków zorganizujemy wystawę sztuki kosmicznej? Nazwijmy to 'Deklaracja Podatkowa: Kosmiczna Opera'!\"", //141 20
+"Co mówi księgowy w kosmosie? Lądowanie na słońce jest jak formularz podatkowy, czasami się udaje a czasami nie.", //142 21 dzień kosmosu
+"Dlaczego podatki są jak obserwacje kosmiczne? Bo im więcej ich wykonujesz tym więcej musisz zapłacić!", //143 22
+"Co mówi księgowy, gdy widzi, że klient płaci podatki w tempie ślimaka? \"Może powinniśmy zmienić nazwę na 'Podatkowa Szkoła Życia Ślimaka: Jak Zwolnić Tempo'!\"", //144 23
+"Dlaczego podatki są jak dzień ślimaka? Bo czasem wydają się przeciągać tak długo, że zaczynasz czuć się jak ślimak, próbując się przedrzeć przez gąszcz formularzy!", //145 24 dzień ślimaka
+"Co robi księgowy, gdy widzi, że urzędnicy podatkowi przeciągają proces zwrotu podatku? Zakłada hełm ślimaka i idzie walczyć o szybsze tempo!", //146 25
+"Kiedy księgowy widzi skomplikowany formularz podatkowy, mówi: \"To jak spotkanie z obcym życiem! Musimy użyć kosmicznego komputera, żeby go zrozumieć!\"", //147 26
+"Dlaczego księgowi nie lubią gdy pada deszcz? Bo podatki wyrastają jak grzyby po deszczu!", //148 27
+"Dlaczego księgowi noszą peleryny? Bo wiedzą, że muszą być gotowi na kosmiczne starcia z audytorami, którzy jak kosmiczni obcy próbują znaleźć jak najwięcej błędów w naszych rozliczeniach!", //149 28
+"Co mówi niewdzięczny podatnik gdy widzi księgowego? Jestem gotowy odlecieć płacąc!", //150 29
+"Dlaczego księgowy nosi na głowie wirującą piłkę do ping-ponga? Bo wierzy, że jeśli zdoła utrzymać ją w ruchu, to podatki staną się bardziej przewidywalne!", //151 30 
+"Co robi księgowy gdy zaczyna się lato? Buduję szklarnie podatkową!", //152 31
+"Co mówi podatnik 1 czerwca? Oj jak to dobrze że podatki mnie nie rozumieją!", // 153 01 czerwca
+"Co robi księgowy budząc się 1 czerwca? Wsiada na rower aby pędzić na spotkanie z podatkami!", //154 02
+"Co robi księgowy, kiedy chce odpocząć? Organizuje sobie piknik na łące pełnej kolorowych dokumentów podatkowych i próbuje znaleźć w nich kształty zwierząt!", //155 03
+"Dlaczego księgowi lubią chodzić na spacery po lesie? Bo tam mogą się schować w gąszczu drzew, gdy próbują unikać spotkania z klientami w okresie rozliczeń!", //156 04
+"Dlaczego księgowi nienawidzą waty cukrowej? Bo wszystkie formularze podatkowe się tam kończą!", //157 05
+"Jakie jest ulubione stołowe równanie chemika-podatnika? Dochód - (wydatki + ulgi) = Ciągłe reakcje z fiskusem!", //158 06
+"Co chemik robi z nadwyżką podatków? Próbuję je przekształcić w reakcję egzotermiczną, żeby przynajmniej trochę odzyskać ciepło w portfelu!", //159 07 dzień chemika
+"Dlaczego chemik nigdy nie jest zadowolony z podatków? Bo nawet jeśli znajdzie ulgę, zawsze jest jakiś katalizator, który sprawia, że trzeba zapłacić więcej!", //160 08
+"Co mówi księgowy, kiedy znajduje kalkulator zatopiony w kawie? \"To musi być kolejny dowód na to, że nawet maszyna potrzebuje kofeiny, żeby przetrawić skomplikowane formularze podatkowe!\"", //161 09
+"Co robi księgowy, kiedy widzi rachunek za pizzę? Analizuje każdy składnik i próbuje zrozumieć, czy może być to odliczone jako wydatek firmowy!", //162 10
+"Dlaczego księgowi noszą na szyi wielki naszyjnik z kalkulatora? Bo wierzą, że to ich talizman przynoszący szczęście podczas obliczeń podatkowych!", //163 11
+"Co mówi księgowy, kiedy znajduje długopis w kieszeni zamiast kalkulatora? \"To musi być ostrzeżenie, że czasem musisz iść na skróty, nawet w świecie pełnym cyfr i liczb podatkowych!\"", //164 12
+"Dlaczego podatek nie lubi chodzić do kina? Bo za każdy seans musi zapłacić od ziarna popcornu!", //165 13
+"Co mówi księgowy, gdy zobaczy, że klient zgubił część dokumentów podatkowych? \"To jak wiatr - czasem trzeba trochę chaosu, żeby poczuć ulgę!\"", //166 14
+"Co mówi księgowy, gdy widzi zawirowania podatkowe? \"To jak wiatr w puszczy - każdy wie, że istnieje, ale nikt nie wie, skąd przychodzi!\"", //167 15 dzień wiatru
+"ha ha ha! pewnie chciałeś zobaczyć dzisiejszy żart podatkowy... nie tak łatwo! Dlaczego podatki są jak porywy wiatru? Bo czasami tracisz równowagę, próbując zrozumieć ich zawiłości!", //168 16
+"Dlaczego księgowi nie grają w grę w chowanego? Bo zawsze kończą w biurze \"księgowym\"!", //169 17
+"Dlaczego księgowy nosi na głowie gumową kaczkę? Bo uważa, że podatki są jak woda - czasem spokojne, czasem burzliwe, ale zawsze trzeba pływać!", //170 18
+"Co mówi księgowy, kiedy znajduje stary, zakurzony arkusz kalkulacyjny? \"To jak znalezienie skarbu! Ale zamiast złota, mamy tu mnóstwo cyfr i błędów!\"", //171 19
+"Dlaczego podatki są jak gra w wyścigi krokodyli? Bo zawsze stoisz na brzegu, patrząc jak inni wpadają w pułapki podatkowe!", //172 20
+"Co robi księgowy, gdy potrzebuje chwili relaksu? Wyciąga kalkulator, zamyka oczy i liczy ile kroków dzieli go od bezpiecznej przystani zwaną wypłatą premii!", //173 21 
+"Dlaczego podatki są jak początek wakacji? Bo czasami wydają się być równie odległe jak szczyt góry, na którą musisz się wdrapywać, żeby móc odpocząć!", //174 22
+"Co mówi księgowy, gdy widzi, że podatki są naliczane w okresie wakacyjnym? \"To jak parawan na plaży - próbuje nas ochraniać, ale i tak dostajemy słońcem w oczy!\"", //175 23 noc świętojańska
+"Co robi księgowy, gdy dostaje zawiadomienie o kontroli podatkowej w dniu nocnej zabawy? Wysyła fajerwerki z kalkulatora, żeby odwrócić uwagę!", //176 24 początek wakacji
+"Co mówi księgowy, gdy widzi, że klient zapomniał złożyć deklaracji podatkowej przed wyjazdem na wakacje? \"To jak zgubienie się na plaży - czasem trzeba wrócić na początek, żeby znaleźć właściwą drogę!\"", //177 25 
+"Co mówi księgowy, gdy widzi migoczące światła na ekranie kalkulatora? \"To nie jest błąd! To tylko efekt specjalny w moim cyfrowym spektaklu podatkowym!\"", //178 26
+"Dlaczego podatki są jak gra planszowa? Bo czasem czujesz, że grasz w jednej planszy, a w rzeczywistości trafiłeś do całkowicie innego wymiaru!", //179 27
+"Co robi księgowy, kiedy znajduje skarbonkę w biurze? Zaczyna w niej gromadzić monetę za monetą, marząc o dniu, gdy zdoła zbudować z niej mur ochronny przed nowymi przepisami podatkowymi!", //180 28
+"Dlaczego formularz podatkowy płakał w kącie? Bo dowiedział się, że nigdy nie zostanie sudoku.", //181 29
+"Dlaczego motyl kapustnik nie pracuje jako księgowy? Bo zbyt często odlatuje w marzenia o wolności podatkowej!", //182 30 dzień motyla kapustnika
+"Dlaczego UFO nie składa deklaracji podatkowych? Bo odleci!", //183 1 lipca
+"Co robi UFO, gdy widzi formularz podatkowy? Wciąga go promieniem śmierci, bo tylko tak można uniknąć papierologii!", //184 02 dzień ufo
+"Dlaczego UFO wylądowało w księgowości? Bo chciało zobaczyć, jak wygląda VAT w trójwymiarze... od środka kalkulatora!", //185 03
+"Dlaczego księgowi noszą przy sobie kieszonkową latarkę? Bo nigdy nie wiesz, kiedy będziesz musiał zajrzeć podatowi w oczy!", //186 04
+"Co mówi księgowy, kiedy dostaje dokument podatkowy w formie kolorowej komiksu? \"To jest jak odkrycie nowego świata! Ale zamiast superbohaterów, mamy tutaj supergłupotę!\"", //187 05
+"Dlaczego księgowy nosi na głowie potrójne szelki? Bo wierzy, że podatki są tak trudne do ogarnięcia, że potrzebuje dodatkowego wsparcia!", //188 06
+"Co mówi księgowy, kiedy traci ołówek? \"To musi być kolejny podatkowy zamach! Ktoś próbuje zaciemnić moje przemyślenia podatkowe!\"", //189 07 
+"Dlaczego podatki są jak szachownica? Bo zawsze musisz być gotowy na każdy ruch, ale nigdy nie wiesz, kto będzie szachownicą i kto będzie figurą!", //190 08
+"Co robi księgowy, kiedy widzi tęczę na niebie? Zastanawia się, czy to jest znak od Urzędu Skarbowego czy tylko efekt uboczny wewnętrznego dialogu podatkowego!", //191 09
+"Co mówi księgowy, kiedy dostaje kredyt podatkowy? \"To jak odnalezienie podatkowego monumentu! Ale czy znajdę go przed kolejnym terminem deklaracji?\"", //192 10
+"Dlaczego księgowy zawsze tańczy w kącie na imprezie? Bo tam najlepiej widać bilans między DJ-em a tłumem.", //193 11
+"Co powiedział formularz podatkowy na parkiecie? „Nie mogę się zgiąć, ale mogę się rozliczyć w rytmie disco!”", //194 12 dzien imprezy
+"Co robi księgowy, gdy widzi piniatę na imprezie? Próbuję okieuznać podatek cukrowy!", //195 13
+"Co robi księgowy, kiedy odkrywa błąd w swoich obliczeniach? Wzywa na pomoc podatkowego superbohatera, znanego jako \"Kapitan Kalkulator\"!", //196 14
+"Co robi księgowy, gdy spada mu długopis na podłogę? Prosi o pomoc Szekspira.", //197 15 
+"Dlaczego księgowy na Dzień Księgowego nie je kanapek? Bo Excel nie odpowiada.", //198 16 dzień księgowego
+"Jak wygląda konkurs na Dzień Księgowego? Wygrywa ten, kto najszybciej znajdzie różnicę w groszach w bilansie z 1982 roku, patrząc tylko w lustro.", //199 17
+"Dlaczego księgowi noszą przy sobie zestaw do naprawy roweru? Bo uważają, że podatki są jak rower - czasem trzeba po kryjomu dokręcić śrubkę, żeby jechało się płynniej!", //200 18
+"Co mówi księgowy, kiedy patrzy na księżyc? \"To musi być znak od podatkowych bogów! Ale czy jest to znak, że powinniśmy zwiększyć nasz budżet na księżycowe badania?\"", //201 19
+"Podatki są jak zjąc. Nigdy nie wiesz kiedy może kazać ci zapłacić za niego.", //202 20
+"Dlaczego księgowi noszą rękawiczki? Bo trzeba chronić dłonie przed oparzeniami, kiedy się zajmuje gorącymi tematami podatkowymi!", //203 21 
+"Co to jest dla księgowego szczyt elegancji w kosmosie? Kiedy zamiast zwykłego kalkulatora używa kalkulatora zbudowanego z gwiazd i kryształów kosmicznych!", //204 22
+"Co mówi księgowy, gdy kończy dzień pracy? „Czas na moją drugą pasję: sortowanie makaronu alfabetycznie!”", //205 23 
+"Dlaczego w krainie podatków zabronili używać lusterek? Bo odbijały zyski i straty w niewłaściwą stronę.", //206 24 
+"Jak wygląda superbohater podatkowy?Ma pelerynę z paragonów i miecz z raportów kwartalnych, ale jego największą mocą jest... odliczenie VAT-u od każdej porażki!", //207 25 
+"Dlaczego księgowi nienawidzą niedziel? Bo nawet kalkulator mówi wtedy: „ERROR 404: RELAKS NOT FOUND”.", //208 26
+"Co się stanie, jeśli zderzą się dwa paragrafy podatkowe?Powstaje czarna dziura fiskalna, która wciąga wszystkie oszczędności.", //209 27
+"Jak wygląda idealna impreza księgowych? Wszyscy tańczą w kółko, próbując znaleźć brakujący grosz w bilansie.", //210 28
+"Dlaczego podatek dochodowy został królem dżungli? Bo lew się nie rozliczał i trafił do Urzędu Skarbowego.", //211 29
+"Co zrobił księgowy, kiedy wygrał na loterii? Od razu odjął 19% i założył rezerwę na audyt!", //212 30
+"Dlaczego formularze podatkowe mają tyle stron? Bo to książka fantasy, w której rząd jest smokiem, a ty musisz oddać mu swoje złoto!", //213 31
+"Co powiedział księgowy, kiedy pomylił procenty? „To była procentowo najmniejsza pomyłka mojego życia!”", // 8 214 1 
+"Jak księgowy przygotowuje się do audytu? Zakłada szalik, bo zawsze wieje chłodem od urzędu skarbowego.", // 8 215 2 
+"Co robi księgowy, gdy nikt nie patrzy? Tworzy nowe kody PKD, żeby zobaczyć, jak daleko może się posunąć biurokracja.", // 8 216 3
+"Dzień Liczyrzepy – obchodzony, gdy w Excelu nie ma błędów!", // 8 217 4
+"Co mówi księgowy na imprezie? „Nie piję.”", // 8 218 5
+"", // 8 219 6 wincenty imieniny
+"", // 8 220 7 kolejne imieniny wincentego
+"Dlaczego urzędy skarbowe są jak planety w kosmosie? Bo w ich grawitacji tonie horyzont.", // 8 221 8
+"", // 8 222 9
+"", // 8 223 10
+"", // 8 224 11
+"", // 8 225 12
+"", // 8 226 13
+"", // 8 227 14
+"", // 8 228 15
+"", // 8 229 16 
+"", // 8 230 17
+"", // 8 231 18
+"", // 8 232 19 wincenty
+"", // 8 233 20
+"", // 8 234 21
+"", // 8 235 22
+"", // 8 236 23
+"", // 8 237 24
+"", // 8 238 25 wincenty
+"", // 8 239 26
+"", // 8 240 27
+"", // 8 241 28
+"", // 8 242 29
+"", // 8 243 30
+"", // 8 244 31
+"", // 9 245 1
+"", // 9 246 2
+"", // 9 247 3
+"", // 9 248 4
+"", // 9 249 5
+"", // 9 250 6
+"", // 9 251 7
+"", // 9 252 8
+"", // 9 253 9
+"", // 9 254 10
+"", // 9 255 11 wincenty imieniny
+"", // 9 256 12
+"", // 9 257 13
+"", // 9 258 14
+"", // 9 259 15
+"", // 9 260 16
+"", // 9 261 17
+"", // 9 262 18
+"", // 9 263 19
+"", // 9 264 20
+"", // 9 265 21 dzień służby celnej
+"", // 9 266 22
+"", // 9 267 23
+"", // 9 268 24
+"", // 9 269 25 
+"", // 9 270 26
+"", // 9 271 27
+"", // 9 272 28
+"", // 9 273 29
+"", // 9 274 30
+"", // 10 275 1
+"", // 10 276 2
+"", // 10 277 3
+"", // 10 278 4
+"", // 10 279 5
+"", // 10 280 6
+"", // 10 281 7
+"", // 10 282 8
+"", // 10 283 9 
+"", // 10 284 10
+"", // 10 285 11
+"", // 10 286 12
+"", // 10 287 13
+"", // 10 288 14 dzien edukacji narodowej
+"", // 10 289 15
+"", // 10 290 16
+"", // 10 291 17
+"", // 10 292 18
+"", // 10 293 19
+"", // 10 294 20
+"", // 10 295 21
+"", // 10 296 22 dzień bez capslocka
+"", // 10 297 23
+"", // 10 298 24
+"", // 10 299 25
+"", // 10 300 26
+"", // 10 301 27
+"", // 10 302 28
+"", // 10 303 29
+"", // 10 304 30
+"", // 10 305 31 halloween
+"", // 11 306 1
+"", // 11 307 2
+"", // 11 308 3
+"", // 11 309 4
+"", // 11 310 5
+"", // 11 311 6
+"", // 11 312 7
+"", // 11 313 8
+"", // 11 314 9 dzien wynalazcy
+"", // 11 315 10
+"", // 11 316 11
+"", // 11 317 12
+"", // 11 318 13
+"", // 11 319 14
+"", // 11 320 15
+"", // 11 321 16
+"", // 11 322 17 dzień studenta
+"", // 11 323 18
+"", // 11 324 19
+"", // 11 325 20
+"", // 11 326 21
+"", // 11 327 22
+"", // 11 328 23
+"", // 11 329 24
+"", // 11 330 25
+"", // 11 331 26
+"", // 11 332 27
+"", // 11 333 28
+"", // 11 334 29 andrzejki
+"", // 11 335 30
+"", // 12 336 1
+"", // 12 337 2
+"", // 12 338 3
+"", // 12 339 4
+"", // 12 340 5
+"", // 12 341 6 mikołajki
+"", // 12 342 7
+"", // 12 343 8
+"", // 12 344 9
+"", // 12 345 10
+"", // 12 346 11
+"", // 12 347 12
+"", // 12 348 13
+"", // 12 349 14
+"", // 12 350 15
+"", // 12 351 16
+"", // 12 352 17
+"Dlaczego księgowy nie ubiera choinki? Bo twierdzi, że każda bombka to potencjalna ukryta pieniężna eksplozja!", // 12 353 18
+"Dlaczego księgowi boją się świątecznych światełek? Bo zawsze, gdy je widzą, zastanawiają się, czy to nie kontrola podatkowa z saniami pełnymi formularzy!", // 12 354 19
+"Dlaczego podatki są jak świąteczne prezenty? Bo nigdy nie wiesz, co dostaniesz – zbrodnię czy karę!", // 12 355 20
+"Dlaczego Święty Mikołaj zatrudnił księgowego? Bo elfy zjadały faktury na uczcie!", // 12 356 21
+"Dlaczego podatki są jak choinka? Bo zawsze musisz je ozdobić, a na końcu przypieczętować drobnym funduszem!", // 12 357 22
+"Dlaczego księgowi boją się kolędników? Bo zawsze przychodzą z pytaniem: „A gdzie nasz podatek od świątecznej radości?”", // 12 358 23
+"Dlaczego niegodziwy Mikołaj jest największym koszmarem księgowych? Bo rozdaje nieudokumentowane prezenty, a potem każe wpisywać je w koszty!", // 12 359 24 święta
+"Dlaczego podatki są jak pierniki? Bo im dłużej się nimi zajmujesz, tym bardziej robią się twarde!", // 12 360 25
+"Dlaczego księgowi boją się Świętego Mikołaja? Bo zawsze zostawia w skarpecie podatki widmo!", // 12 361 26
+"Dlaczego Mikołaj płaci księgowym w piernikach? Bo wszystkie jego monety są czekoladowe!", // 12 362 27
+"Co mówi księgowy, kiedy widzi na choince złote bombki?\"Czy to inwestycja w złoto, czy zgubna tradycja?\"", // 12 363 28
+"Dlaczego Urząd Skarbowy uwielbia Sylwestra? Bo każda petarda to kolejny „wybuch w budżecie”.", // 12 364 29
+"Dlaczego na sylwestrowym balu księgowych nie ma muzyki? Bo wszyscy tańczą w rytm arkusza kalkulacyjnego – według tabeli przestawnej.", // 12 365 30
+"Jak wygląda sylwestrowa zabawa w Urzędzie Skarbowym? O północy zamiast konfetti wypuszczają w powietrze formularze PIT-37.", // 12 366 31sylwester
+];
+
+
+
+//dodawanie żartów do strony
+document.getElementById("zzart").innerHTML = zartylista[dni];
+
+</script>
+</body>
+
+</html>

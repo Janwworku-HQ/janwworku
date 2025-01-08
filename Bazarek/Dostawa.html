@@ -1,0 +1,326 @@
+
+<html lang="pl">
+   
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Najlepsze produkty lokalny bazarek najlepszy w Dunzynan">
+<title id="title">Dunzynański Bazarek - Dostawa</title>
+        <style>
+            body
+            {
+
+background-color: #1c1f1d;
+margin: 0px;
+
+            }
+*
+{
+
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+#menu-gorne
+{
+
+background-color: rgba(105, 105, 105, 0.737);
+width: 100%;
+height: 10%;
+position: fixed;
+padding: 4px;
+border: 2px black;
+display: flex;
+justify-content: center;
+
+
+}
+#odzielenie
+{
+    width: 100%;
+    height: 15%;
+
+
+}
+.przycisk
+{
+    font-size: large;
+    
+    user-select: none;
+    float: left;
+    border: 3px solid rgb(34, 34, 34);
+    border-radius: 4px;
+    height: 85%;
+    width: 19%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 4px;
+}
+.przycisk:hover
+{
+    user-select: none;
+    border: 3px solid yellow;
+    color: yellow;
+    background: #1c1f1d;
+
+}
+img
+{
+
+width: 100%;
+height: 100%;
+
+}
+#obrazek
+{
+
+    border: 0px;
+    height: 85%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+}
+#obrazek:hover
+{
+
+    animation: niewolnik 0.7s ease 0s infinite normal forwards;
+
+}
+@keyframes niewolnik {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+
+	10%,
+	30%,
+	50%,
+	70% {
+		transform: translateX(-10px);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: translateX(10px);
+	}
+
+	80% {
+		transform: translateX(8px);
+	}
+
+	90% {
+		transform: translateX(-8px);
+	}
+}
+
+
+#srodkowanieflex
+{
+
+display: flex;
+justify-content: center;
+width: 100%;
+
+}
+h3, h1, h2{
+
+text-align: center;
+
+}
+#BazareklogoImg
+{
+
+    width: 30%;
+    height: 10%;
+
+}
+footer
+{
+text-align: center;
+padding: 4vh;
+background-color: rgb(57, 56, 56);
+font-size: small;
+}
+a:visited 
+{
+
+color: lightblue;
+
+}
+a
+{
+
+color: lightblue;
+
+}
+#obrazekkawusia
+{
+
+width: 20%;
+height: 30%;
+animation: kurier 10s ease 0s infinite normal forwards;
+}
+
+@keyframes kurier {
+	0%,
+	100% {
+		transform: rotate(0deg);
+		transform-origin: 50% 100%;
+	}
+
+	10% {
+		transform: rotate(2deg);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: rotate(-4deg);
+	}
+
+	30%,
+	50%,
+	70% {
+		transform: rotate(4deg);
+	}
+
+	80% {
+		transform: rotate(-2deg);
+	}
+
+	90% {
+		transform: rotate(2deg);
+	}
+}
+
+
+        </style>
+    </head>
+<body>
+
+
+
+<div id="menu-gorne">
+    <div class="przycisk" onclick="przekierowanie(1)">Strona Główna</div>
+    <div class="przycisk" onclick="przekierowanie(2)">Bazarek</div>
+    <div id="obrazek" onclick="sprzedanedzwiek()"><img src="bazareklogo2.png"></div>
+    <div class="przycisk" onclick="przekierowanie(3)">Koszyk</div>
+    <div class="przycisk" onclick="przekierowanie(4)">Dostawa</div>
+    
+</div>
+
+<div id="odzielenie"></div>
+<h1 id="usluga">Niestety usługa dostawy jest obecnie niedostępna</h1>
+<h2 id="liczbadni">Sprawdź ponownie za </h2>
+<div id="odzielenie"></div>
+
+<div id="srodkowanieflex">
+    
+<img src="j.png" id="obrazekkawusia">
+    
+</div>
+
+<div id="odzielenie"></div>
+<footer> <a href="https://janwworku.neocities.org/">www.janwworku.pl</a> <br> Dunzynański Bazarek <br> Więcej o nas znajdziesz na <a href="StronaGlowna.html">stronie głównej</a> <br> PomozcieMi@janwworku.pl <br> NIE PONOSIMY ODPOWIEDZIALNOŚCI ZA WEJŚCIE NA STRONĘ NUMER CZTERDZIEŚCICZTERY</footer>
+</body>
+<script>
+
+//kod ukradziony z żartów podatkowych na dzisiejszy dzień roku
+let dzisiaj = new Date();
+let poczatekRoku = new Date(dzisiaj.getFullYear(), 0, 0);
+
+
+let roznica = dzisiaj - poczatekRoku;
+
+
+let dni = Math.floor(roznica / (1000 * 60 * 60 * 24));
+console.log('Dzień w roku: ' + dni);
+
+
+//dni od dziś do 13 lutego czyli kod którego wcale nie ukradłem
+
+
+// Ustawienie daty 13 lutego bieżącego roku
+const targetDate = new Date(dzisiaj.getFullYear(), 1, 13); // Miesiące w Date są zerowane (0 = styczeń, 1 = luty, itd.)
+
+// Sprawdzenie, czy data 13 lutego już minęła
+if (dzisiaj > targetDate) {
+  // Jeśli 13 lutego już minęło, obliczamy do następnego roku
+  targetDate.setFullYear(dzisiaj.getFullYear() + 1);
+}
+
+// Obliczenie różnicy w milisekundach
+const diffInMillis = targetDate - dzisiaj;
+
+// Przeliczenie różnicy z milisekund na dni
+const diffInDays = Math.ceil(diffInMillis / (1000 * 60 * 60 * 24));
+
+console.log(`Liczba dni do 13 lutego: ${diffInDays}`);
+
+
+
+//dostawa
+if (dni == 44)
+{
+
+document.getElementById("usluga").innerHTML = "Nasi kurierzy obecnie mają przerwę na kawę"
+document.getElementById("liczbadni").innerHTML += "Prosimy o cierpliwość";
+}
+else
+{
+
+document.getElementById("liczbadni").innerHTML += diffInDays + " dni";
+
+}
+
+
+//bazowan nazwa strony
+document.getElementById("title").innerHTML = "Dunzynański Bazarek - Dostawa"
+
+
+var sleepSetTimeout_ctrl; //ukradziony kod na czekanie x sekund
+//await sleep(10);
+function sleep(ms) {
+    clearInterval(sleepSetTimeout_ctrl);
+    return new Promise(resolve => sleepSetTimeout_ctrl = setTimeout(resolve, ms));
+}
+//s
+   
+//wygrywanie dźwięku po naciśnięciu na czekanie guzik
+let sprzedaneSound = new Audio("SPRZEDANE.ogg");
+function sprzedanedzwiek() 
+{
+
+sprzedaneSound.play();
+console.log("muzyka zagrana")
+}
+
+function przekierowanie(numer) //menu górne
+{
+
+    if (numer == 1)
+{
+    window.location.href = "StronaGlowna.html";
+}
+else if (numer == 2)
+{
+    window.location.href = "bazarek.html";
+}
+else if (numer == 3)
+{
+    window.location.href = "Koszyk.html";
+}
+else if (numer == 4)
+{
+    window.location.href = "Dostawa.html";
+}
+
+}
+
+
+
+</script>
+</html>

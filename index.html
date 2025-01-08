@@ -1,0 +1,424 @@
+<html lang="pl">
+<head>
+    <meta name="description" content="Jan w worku to witryna internetowa utworzona">
+    <meta name="keywords" content="jan, janwworku, adiemus, modulo, kawdor, dunzynan, niegodziwy, głupi, przebiegły, łamliwy, bakczysaraj, sprzedany, bazarek, niepoczytalny, podatki, szkodliwy, żart, worek, w worku">
+    <title id="tytul">Jan w Worku - </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+body{
+margin: 0%;
+background-color: rgb(66, 66, 66);
+
+}
+#jan 
+{
+    
+background-color: rgb(77, 77, 77);
+
+width: 100%;
+display: flex;
+justify-content: center;
+
+}
+img
+{
+
+width: 250px;
+height: 100px;
+margin: 10px;
+
+
+}
+#oblakany:hover
+{
+
+    animation: oblakanyjas 0.4s cubic-bezier(0.55, 0, 1, 0.45) 0s 1 normal forwards;
+
+}
+@keyframes oblakanyjas {
+	0%,
+	100% {
+		transform: translateX(0%);
+		transform-origin: 50% 50%;
+	}
+
+	15% {
+		transform: translateX(-30px) rotate(-6deg);
+	}
+
+	30% {
+		transform: translateX(15px) rotate(6deg);
+	}
+
+	45% {
+		transform: translateX(-15px) rotate(-3.6deg);
+	}
+
+	60% {
+		transform: translateX(9px) rotate(2.4deg);
+	}
+
+	75% {
+		transform: translateX(-6px) rotate(-1.2deg);
+	}
+}
+@keyframes myAnim {
+	0% {
+		transform: rotate(0);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+#content
+{
+   display: inline-block;
+
+height: fit-content;
+width: 98%;
+padding-left: 1%;
+padding-right: 1%;
+padding-bottom: 20px;
+}
+.ikonka
+{
+    border: 10px;
+    
+    float: left;
+width: 32%;
+height: 30vh;
+padding-left: 12px;
+padding-bottom: 8px;
+}
+.obrazek
+{
+
+width: 100%;
+height: 100%;
+border: 4px rgb(49, 49, 49) solid;
+border-radius: 10px;
+
+}
+.obrazek:hover
+{
+
+cursor: grab;
+animation: oblakanyjas 0.4s cubic-bezier(0.55, 0, 1, 0.45) 0s 1 normal forwards;
+}
+
+    </style>
+</head>
+<body>
+<div id="jan"><img onclick="jasiudialog()" id="oblakany" src="Obrazki/logo.png"></div>
+
+<div id="pogoda"></div>
+
+<br><br>
+<div id="content">
+<br>
+<div class="ikonka"><a href="/DaneKawdor"><img src="obrazki/danekawdor.png" class="obrazek"></a></div>
+<div class="ikonka"><a href="/ModuloMatkąGłupich"><img src="Obrazki/modulo.png" class="obrazek"></a></div>
+<div class="ikonka"><a href="/AdiemusZdjeciaiDowody"><img src="Obrazki/adiemus.png" id="adiemusobrazek" class="obrazek"></a></div>
+<div class="ikonka"><a href="/Podatki"><img src="Obrazki/podatki.png" class="obrazek"></a></div>
+<div class="ikonka"><a href="/Praca"><img src="Obrazki/COMMIT.png" class="obrazek"></a></div>
+<div class="ikonka"><a href="https://bakczysaraj.neocities.org/"><img src="Obrazki/bakczysaraj.png" class="obrazek"></a></div>
+<div class="ikonka"><a href="/Golebie"><img src="Obrazki/golebie.png" class="obrazek"></a></div>
+<div class="ikonka"><img src="Obrazki/bazarekSTOP.png" class="obrazek"></div>
+<div class="ikonka"><a href="/PIASEK"><img src="Obrazki/piasek.png" class="obrazek"></a></div>
+<div class="ikonka"><a href="https://www.youtube.com/@janwworku"><img src="Obrazki/youtube.png" class="obrazek"></a></div>
+
+
+
+</div>
+    <script>
+// cenzurowanie ikonki z stroną adiemusa
+let AdiemusCenzura = localStorage.getItem("CzyCenzura");
+if (AdiemusCenzura != null)
+{
+
+document.getElementById("adiemusobrazek").src = "Obrazki/CENZURA.png";
+
+}
+
+
+//losowy tytul
+
+let tytul = ["fraszki", "treny", "zabawa", "łakocie", "farmazony", "literatura", "styl", "WINCENTY", "podatki", "dunzynan", "niegodziwi którzy widzieli", "[CENZURA]", "ekonomia", "cykl krebsa", "mrówki", "O TYM SIE MÓWI", "dom w czarnolesie", "bazylianie", "astronomia", "tawerna", "bąbelkowy świat gupików", "tu nie ma wykładowców", "prawda", "fałsz", "agamemnon", "groch", "pawle petitki", "SPRZEDANI", "krukowiecki", "polowanie", "biblioteki", "bambuko", "niecny", "rosomaki", "księgowi", "COMMIT", "GIT BASH", "INIT", "bob", "błonnik", "kamember", "NiePracować", "tetris", "znajdź go", "wiedza", "pogarda", "triumf", "Jupik", "poeta", "bim", "bam", "bom", "panie janie", "cymbałki", "tutorial", "obiekty", "witryna", "SCRUM", "mistrzowie", "NULL", "Śmiechawa", "tornado", "krombemo", "SPRZEDANE", "wyjątkowe promocje", "44", "bambusowe ruiny", "festyn", "dunzynek", "na jagody", "łabędzie", "rowery szeroki wybór", "nauka programowania za darmo", "smaki świata", "gloria", "victis", "praca organiczna", "HALABANGA!", "pistolety skałkowe", "joachim", "kapela", "zamordyzm"];
+let tytullosowosc = Math.floor(Math.random() * (tytul.length - 1));
+document.getElementById("tytul").innerHTML += tytul[tytullosowosc];
+
+
+// dialog z logiem jan w worku
+function jasiudialog()
+{
+
+
+
+
+let losowyjan = Math.floor(Math.random() * (janieprawdy.length - 1));
+alert(janieprawdy[losowyjan]);
+
+
+
+}
+
+
+
+let janieprawdy = [
+
+"hu hu ha hu hu ha idzie zima zła",
+
+"na katar najlepsze są świeże jagody z lasu dunzynan ",
+   
+
+"podzielmy matematyka na sylaby ma-te-ma-ty-ka... głupie",
+   
+
+"proszę sprawdź prognozę pogody",
+
+"środa piątkiem niegodziwych",
+   
+
+"czasami człowiekowi zdarza się powiedzieć coś prawdziwego",
+ 
+
+"modulo matką głupich",
+    
+"poniedziałek weekendu początek",
+    
+
+"dobra literatura to jedyne czego trzeba dla dobra literatury",
+    
+
+   "a e i o u y ą ę",
+   
+   "niegodziwym jest ten który zapomniał",
+  
+   "nieprawidłowe hasło",
+  
+
+   "ukatrup",
+  
+    "dowiedz się prawdy https://janwworku.neocities.org/te%C5%9Bcik/test1",
+    
+   "jesteś teraz w swoim domu możesz tu wrócić w każdym momencie klikając ikonkę domu w rogu",
+  
+  "komunikat 15",
+
+   "niegodziwym jest ten który zapomniał",
+   
+    "nieprawidłowe hasło",
+    
+   "ukatrup",
+    
+    "dowiedz się prawdy https://janwworku.neocities.org/te%C5%9Bcik/test1",
+    
+    "jesteś teraz w swoim domu możesz tu wrócić w każdym momencie klikając ikonkę domu w rogu",
+   
+    "śmiało, pochwal się tym zwycięstwem w tawernie",
+    
+    "nikczemny pozostanie na zawsze pozostanie głupi",
+  
+    "szkodliwość rzeczy martwych",
+   
+   "gdy głupi się śmieje to niegodziwy leci",
+   
+   "zwycięstwo jest wtedy gdy przebiegły dołki kopie",
+   
+   "jeżeli magik potrafi czarować to niegodziwy potrafi latać",
+   
+ "krzyknę żeś nie ojcem świata ale głupkiem",
+   
+"i to był przypadek... jan przypadek",
+     
+  "jesteś jak znak sygnalizacja świetlna...",
+  "(tutaj nie ma żartu... po prostu wyglądasz dziś jak sygnalizacja świetlna)",
+     
+ "niegodziwy powie \"jesteś pomnikiem głupka na pomniku krzesła\"... a martwy mu przytaknie",
+     
+  "watafak co sie stało z case 21: alert(\"\") break;",
+     
+  "tylko łamliwy poprosi o SPRAWIEDLIWOŚĆ CIERPLIWOŚĆ ODWAGĘ ŻYCZLIWOŚĆ WYTRWAŁOŚĆ SZCZEROŚĆ DETERMINACJĘ",
+ "głupi poprosi o głupotę",
+  "nazywam się jan bo za miliony siedzę i czekam w worku",
+  
+ "niecny powie że śpi, łamliwy powie że wypoczywa, niegodziwy powie że czai się a ja powiem że mam to w głębokim poważaniu",
+     
+  "są dwie rzeczy nieskończone:",
+   
+  "możesz wygrać z jeremi ustawiając jednostkę na polu B12",
+    
+  "podatnik triumfuje gdy księgowy odpoczywa",
+    
+ "lech czech i rus szli drogą... nagle czech mówi słuchaj lech jesteś głupi bo jako jedyny nie masz w imieniu kraju z którego pochodzisz... lech mu przytaknął i poszli dalej",
+     
+  "łamliwego skrucha jest niegodziwego triumfem",
+     
+ "zapytał głupiego, dostał odpowiedź od niepoczytalnych",
+     
+  "słyszałeś kiedyś legendę o 21 zamku w bazie babel?",
+    
+  "Lekcja<br> Temat:Jak ugotować nieugotowywalne",
+   
+  "wielki rarytas czeka na tego który wszystkie żarty podatkowe zobaczy",
+    
+ "\"Głupim jest ten który pod nogami swoimi widzi złoto a zaś przebiegłym jest ten który widzi je pod nogami innych\" -sokrates",
+    
+  "Błąd",
+     
+  "nie wykryto urządzenia",
+   
+"twoja technologia jest przestarzała i wygasła",
+
+"wielki mistrz medytuje, mały mistrz nie istnieje",
+
+"spoczywaj w worku",
+
+"umarł głupi, narodził się jan",
+
+"wielka uczta",
+
+"gdy niegodziwy się potyka to przebiegły ucztę prawy",
+
+"ale faza",
+
+"wrzuć coś na ząb",
+
+"ten po prawej będzie twoim jutrzejszym przysmakiem",
+
+"SZYBKO POMÓŻ MI NAPAŚĆ NA BANK",
+
+"poranek alkoholika",
+
+"przebiegły rzuca kamienie a niegodziwy zmienia je w szaniec",
+
+"niech pierwszy rzuci kamieniem ten który ma w rękach kamień",
+
+"nie do rymu nie do taktu",
+
+"śmiało pochwal się tym zwycięstwem w tawernie",
+
+"prawda nie boli lecz chodzi parami",
+
+"dnia pewnego przyjdzie podatnik szczęśliwy co on będzie na niepoczytalnych mściwy darem jego inne od wszystkich numery a będą nimi właśnie czterdzieści cztery",
+
+"nie oceniaj dnia po zachodzie słońca",
+
+"polska janem narodów",
+
+"znajdź go",
+
+"martyrologię narodu polskiego ma miejsce właśnie na lekcjach biologii",
+
+"selektor tabeli",
+
+"ziemek ziemek coś ty porównał",
+
+"jestem przyjacielem",
+
+"czasami niegodziwy wymierzy pierwszy a po nim głupi",
+
+"COMMIT COMMIT COMMIT COMMIT COMMIT COMMIT COMMIT COMMIT COMMIT COMMIT COMMIT COMMIT COMMIT COMMIT COMMIT COMMIT COMMIT COMMIT COMMIT COMMIT COMMIT COMMIT",
+
+"co takiego TY zrobiłeś dla SPRINTU?",
+
+"ten cierpi kto zcommitował",
+
+"dunzynek dunzynek coś ty narobił",
+
+"janem jest ten którzy zjada chmury",
+
+"drewniane marzenia",
+
+"niegodziwy będzie tym którego ja wybiorę",
+
+"Ten paragraf może być edytowany przy użyciu Javascript",
+
+"prosze wypuście mnie stąd",
+
+"jestem poetą",
+
+"tobie wybór jest nie dany tyś powinien być SPRZEDANY",
+
+"https://myglogow.pl/pl/",
+
+"znajdź go",
+
+"nasz naród jak zęby kasi",
+
+"prometeusz ulepił z gliny jana",
+
+"jan zjadł prometeusza",
+
+"mądrość ludu jest mądrością zjadliwą",
+
+"nigdy nie idź nad jezioro świteź po zmroku... nawet najodważniejsi boją się tego dokonać",
+
+"płać za dwa krzesła jak lord i usiądź na jednym - bądź poetą",
+
+"sztuką jest tworzyć sztukę",
+
+"czasem życie potrafi być obłędnie cynamonowe",
+
+"janie przeklinam cię jeśli nie będziesz w worku",
+
+"niegodziwi spróbują wejść na stronę numer 44 dunzynańskiego bazarku... lecz szybko staną sie głupimi",
+
+"nazywam się jan i spadłem jabłku na głowę by mogło wymyślić teorię workowych wróżek",
+
+"czasem łamliwi mówią mi że widzieli logo DVD z moim imieniem odbijające się od krawędzi ekranu... ja im wierzę",
+
+"nawet głupi nigdy nie śmiałby podważyć faktu że z dunzynan jest drewno najlepszej jakości",
+
+"niegodziwy czy niepoczytalny to nie ma znaczenia jeżeli w grę wchodzi groźba wiecznej jesieni...",
+
+"głupi pomacha szlachcicowi na kogucie którego widzi na księżycu... a niegodziwy napiszę o tym tekst",
+
+"niegodziwi czasem powiadają: \"nie powinieneś szukać klucza do każdej bramy jaką zobaczysz... zamiast tego poświęć swój czas na znalezienie ładunku wybuchowego\"",
+
+"na zewnątrz latają truskawki mają takie śmigiełka-liście ja nie wychodze bo sie ich boje troche...",
+
+"\"hasło do przedwiecznego spisku pod zamkiem królewskim zadziała też tutaj jeżeli ten którego imie dobrze znasz będzie trzymał je przed sobą\"",
+
+"Tiny Little Adiemus",
+
+"widzisz go? to niewidzialny człowiek nie widać go lecz wiem że tam jest",
+
+"następny który przyjdzie będzie mesjaszem",
+
+"praca organiczna",
+
+"praca u podstaw",
+
+"zabije michała radość to nie mała",
+
+"Metan, Etan, Propan, Butan, Pentan, Heksan, Heptan, Oktan, Nonan, Dekan",
+
+"Psst... Straszy...",
+
+"Biada... Aj biada tym którzy krzyknęli ku chwale zwyciężonym podczas pracy organicznej...",
+
+"GLORIA VICTIS!",
+
+"Niegdyś szkicował węglem... Dziś pali biblioteki",
+
+"Co jest większe? Drzewo czy 2?",
+
+"Zapomniał sinusa z 45... Następnego dnia wpadli GOŚCIE...",
+
+"https://janwworku.pl/NAROD%C3%93W.png",
+
+"Trawa jest zawsze bardziej zielona, gdy jesteś mopsem",
+
+"ha.. ha... ha...",
+
+"KRÓL CIĘ ZABIJE JUTRO RANO"
+];
+
+    </script>
+</body>
+
+</html>
